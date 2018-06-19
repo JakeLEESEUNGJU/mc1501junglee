@@ -32,14 +32,12 @@ public class SignupController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
 		if("read".equalsIgnoreCase(action)) {
-			//회원가입에 입력한 정보 보여주기
 			
 			System.out.println("Entering Read mode");
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			modelandView.addObject("resultMap", resultMap);
 			action = "/read";
 		} else{
-			//회원가입창으로 이동
 			System.out.println("Entering signup mode");
 			action = "/signup";
 		}

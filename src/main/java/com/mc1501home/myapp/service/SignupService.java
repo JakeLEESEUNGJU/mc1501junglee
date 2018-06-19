@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+
+
 @Service
 public class SignupService {
 	public Object getObject(Object dataMap) {
@@ -14,12 +16,12 @@ public class SignupService {
 			
 		/* set protocol */
 		Map<String, Object> protocol = new HashMap<String, Object>();
-		protocol.put("10", "°æ±âµµ");
-		protocol.put("20", "Àü¶óµµ");
-		protocol.put("30", "°æ»óµµ");
-		protocol.put("100", "¼ö¿µ");
-		protocol.put("200", "À½¾Ç°¨»ó");
-		protocol.put("300", "°øºÎ");
+		protocol.put("10", "ê²½ê¸°ë„");
+		protocol.put("20", "ì „ë¼ë„");
+		protocol.put("30", "ê²½ìƒë„");
+		protocol.put("100", "ìˆ˜ì˜");
+		protocol.put("200", "ìŒì•…ê°ìƒ");
+		protocol.put("300", "ê³µë¶€");
 		/* end set protocol */
 		
 		
@@ -28,10 +30,10 @@ public class SignupService {
 		String addrName = (String) protocol.get(((Map)dataMap).get("addr"));
 		
 		//2. hobbies
-			//º¹¼ö°³ ¼±ÅÃÀÌ °¡´ÉÇÑ hobbies¸¦ ÇÏ³ªÀÇ string¿¡ ÀúÀå.
+			//ë³µìˆ˜ê°œ ì„ íƒì´ ê°€ëŠ¥í•œ hobbiesë¥¼ í•˜ë‚˜ì˜ stringì— ì €ì¥.
 //		StringBuffer hobbies = new StringBuffer();
 //		for(String hobbyKey : (String[]) protocol.get(((Map)dataMap).get("hobbies"))) {
-//				//key°ªÀ¸·Î Àü´ŞµÈ hobby¸¦ ½ÇÁ¦ °ª(¼ö¿µ, À½¾Ç°¨»ó µî)À¸·Î º¯°æ
+//				//keyê°’ìœ¼ë¡œ ì „ë‹¬ëœ hobbyë¥¼ ì‹¤ì œ ê°’(ìˆ˜ì˜, ìŒì•…ê°ìƒ ë“±)ìœ¼ë¡œ ë³€ê²½
 //			String hobbyName = (String) protocol.get(hobbyKey);
 //			hobbies.append(hobbyName);
 //			hobbies.append(SPACE_BAR);
@@ -54,7 +56,6 @@ public class SignupService {
 	/*
 	 * 
 	 * 	
-
 		}
 	 */
 }
