@@ -1,41 +1,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#layerModal").click(function() {
-			$("#myModal").modal();
-		});
-	});
-	<!--
-//-->
-</script>
-<div id="page-wrapper">
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 class="page-header">${paramMap.PARENT_COMMON_CODE_ID}List</h1>
-		</div>
-		<!-- /.col-lg-12 -->
-	</div>
-	<button id="layerModal">Launch Demo Modal with jQuery</button>
-	<div class="modal fade" id="myModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
-				<div class="modal-body">Lorem ... laborum.</div>
-				<div class="modal-footer">
-					<button type="button" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Carousel
+    ================================================== -->
+    <div class="carousel">
+      
+      <div class>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption" style=" margin-bottom: 20px;">
+              <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501Group</h2>
+              <p  style="font-size:30px;">Multicampus Free Board</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>	
 	<!-- /.row -->
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Advanced Tables</div>
+				<div class="panel-heading">Free Board</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<div class="dataTable_wrapper">
