@@ -20,18 +20,18 @@ import org.springframework.web.servlet.ModelAndView;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value="coldhot", method= {RequestMethod.GET, RequestMethod.POST})
-public class ColdhotController {
+@RequestMapping(value="sul-go", method= {RequestMethod.GET, RequestMethod.POST})
+public class FoodController {
 	
 	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
-		String viewName="coldhot/";
+		String viewName="sul-go/";
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		if("coldhot".equalsIgnoreCase(action)) {
+		if("sul-go".equalsIgnoreCase(action)) {
 			viewName = viewName + action;
 			resultMap = paramMap;
 		}else {
-			viewName = viewName+"coldhot";
+			viewName = viewName+"sul-go";
 		}
 		
 		modelandView.setViewName(viewName);
