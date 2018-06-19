@@ -18,8 +18,6 @@
 		<!-- <put-attribute name="layout.title" value="home" /> -->
 		<put-attribute name="layout.header"	value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="layout.top" value="/WEB-INF/views/template/user_top.jsp" />
-		 <put-attribute name="layout.left" value="/WEB-INF/views/template/user_left.jsp" />
-		<put-attribute name="layout.right" value="/WEB-INF/views/template/user_right.jsp" />
 		<put-attribute name="layout.footer" value="/WEB-INF/views/template/user_footer.jsp" />
 		<!-- <put-attribute name="layout.body" value="/WEB-INF/views/home.jsp" /> -->
    	</definition>
@@ -39,9 +37,9 @@
    	
    	<definition name="/foodstore/list" extends="layout.test">
 		<put-attribute name="layout.title" value="{1}-{2}" />
-		<put-attribute name="layout.body" value="/WEB-INF/views/{1}/{2}.jsp" />
-		<put-attribute name="layout.left" value="/WEB-INF/views/{1}/{2}.jsp" />
-		<put-attribute name="layout.right" value="/WEB-INF/views/{1}/{2}.jsp" />
+		<put-attribute name="layout.body" value="/WEB-INF/views/foodstore/list.jsp" />
+		<put-attribute name="layout.left" value="/WEB-INF/views/template/user_left.jsp" />
+		<put-attribute name="layout.right" value="/WEB-INF/views/template/user_right.jsp" />
    	</definition>
 
 
