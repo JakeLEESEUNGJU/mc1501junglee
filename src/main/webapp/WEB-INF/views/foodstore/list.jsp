@@ -1,66 +1,59 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-       <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">${paramMap.PARENT_COMMON_CODE_ID} List</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+<html>
+<head>
+
+</head>
+
+  <body>
+
+    <!-- Carousel
+    ================================================== -->
+    <div class="carousel">
+      
+      <div class>
+        <div class="item">
+          <div class="container">
+            <div class="carousel-caption" style=" margin-bottom: 20px;">
+              <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501Group</h2>
+              <p  style="font-size:30px;">Multicampus Food Store</p>
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Advanced Tables
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-											<th><input type="checkbox" id="selecctall" /></th>
-                                            <th>COMMON_CODE_ID</th>
-                                            <th>NAME</th>
-                                            <th>Update</th>
-                                            <th>Parent List</th>
-                                            <th>Child List</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-										<c:forEach items="${resultList}" var="resultData" varStatus="loop">
-	                                        <tr class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
-												<td><input type="checkbox" class="checkbox" name="COMMON_CODE_ID" value="${resultData.COMMON_CODE_ID}" /></td>
-												<td>
-													<a href="<c:url value="/commonCode/read?COMMON_CODE_ID=${resultData.COMMON_CODE_ID}" />">
-													${resultData.COMMON_CODE_ID}</a>
-												</td>
-												<td>${resultData.NAME}</td>
-												<td>
-													<a href="<c:url value="/commonCode/update?COMMON_CODE_ID=${resultData.COMMON_CODE_ID}&forwardView=/commonCode/edit" />">
-													Update</a>
-												</td>
-												<td>
-													<a href="<c:url value="/commonCode/list?COMMON_CODE_ID=${resultData.PARENT_COMMON_CODE_ID}" />">
-													Parent(${resultData.PARENT_COMMON_CODE_ID})</a>
-												</td>
-												<td>
-													<a href="<c:url value="/commonCode/list?PARENT_COMMON_CODE_ID=${resultData.COMMON_CODE_ID}" />">
-													Child (${resultData.NAME})</a>
-												</td>
-	                                        </tr>
-                                        </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+          </div>
         </div>
-        <!-- /#page-wrapper -->
+        
+      </div>
+      
+    </div>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+      <!-- Three columns of text below the carousel -->
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-lg-4">
+        <!-- board indicator -->
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/milk.png'/>" alt="milk" width="140" height="140">-->
+          <img class="img-circle" src="<c:url value='/resources/images/sul-go_greenlight.png'/>" alt="sssoju" width="140" height="140">
+          <h2>자유 게시판</h2>
+          <!-- <p>board indicator </p> -->
+          <p><a class="btn btn-default" href="<c:url value='/'/>" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/hot.gif'/>" alt="hot" width="140" height="140">
+          <h2>ëìì..</h2> --> 
+          <img class="img-circle" src="<c:url value='/resources/images/happy.gif'/>" alt="happy" width="140" height="140">
+          <h2>Food Store</h2>
+          <!-- <img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
+          <h2>ì¸ìì..</h2> -->
+          <p><a class="btn btn-default" href="<c:url value='/foodstore/list'/>" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Get Job</h2>
+          <p><a class="btn btn-default" href="<c:url value='/getjob/list'/>" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+	</div><!-- /.container -->
+</body></html>
