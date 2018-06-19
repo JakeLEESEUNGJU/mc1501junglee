@@ -34,26 +34,27 @@
     <div class="container marketing">
       <div class="row">
         <div class="col-lg-4">
-        <!-- sul-go indicatorê° ìì§ íì±í ìëì ë -->
+        <!-- board indicator -->
           <!-- <img class="img-circle" src="<c:url value='/resources/images/milk.png'/>" alt="milk" width="140" height="140">-->
           <img class="img-circle" src="<c:url value='/resources/images/sul-go_greenlight.png'/>" alt="sssoju" width="140" height="140">
-          <h2>ìì ê²ìí</h2>
-          <!-- <p>sul-go indicatorê° <ì´ë¡/ë¹¨ê°>ì¼ë¡ ë¹ëê³  ììµëë¤. íì¬<#>ëªì´ sul-go!ë¥¼ ì¸ì³¤ìµëë¤. ìëì ë²í¼ì í´ë¦­íì¬ sul-go ë©¤ë²ë¥¼ íì¸íì¸ì. </p> -->
-          <p><a class="btn btn-default" href="<c:url value='/'/>" role="button">View details Â»</a></p>
+          <h2>자유 게시판</h2>
+          <!-- <p>board indicator </p> -->
+          <p><a class="btn btn-default" href="<c:url value='/'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <!-- <img class="img-circle" src="<c:url value='/resources/images/hot.gif'/>" alt="hot" width="140" height="140">
           <h2>ëìì..</h2> --> 
           <img class="img-circle" src="<c:url value='/resources/images/happy.gif'/>" alt="happy" width="140" height="140">
-          <h2>ë±ì¢ìì!</h2>
+          <h2>Food Store</h2>
           <!-- <img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
           <h2>ì¸ìì..</h2> -->
-          <p><a class="btn btn-default" href="<c:url value='/resources/coldhot/coldhot'/>" role="button">View details Â»</a></p>
+          <p><a class="btn btn-default" href="<c:url value='/foodstore/list'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>ê¸°ë¥ì¶ê°ìì </h2>
-          <p><a class="btn btn-default" href="<c:url value='#'/>" role="button">View details Â»</a></p>
+          <h2>Get Job</h2>
+          <p><a class="btn btn-default" href="<c:url value='/getjob/list'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
+        
 	</div><!-- /.container -->
 </body></html>

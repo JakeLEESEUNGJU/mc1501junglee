@@ -26,7 +26,7 @@ import com.mc1501home.myapp.service.MemberService;
  */
 @Controller
 public class FoodController {
-	private final static String MAPPING = "/foodboard/";
+	private final static String MAPPING = "/foodstore/";
 	
 	@Autowired
 	private MemberService service;
