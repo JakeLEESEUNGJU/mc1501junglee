@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mc1501home.myapp.service.BoardService;
 import com.mc1501home.myapp.service.MemberService;
 
 /**
@@ -29,7 +30,7 @@ public class BoardController {
 	private final static String MAPPING = "/board/";
 	
 	@Autowired
-	private MemberService service;
+	private BoardService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
