@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class GetJobController {
+public class GetJobService {
 	public Object getObject(Object dataMap) {
 		Map<String, Object> resultObject = new HashMap<String, Object>();
 		

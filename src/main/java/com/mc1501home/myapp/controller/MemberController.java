@@ -25,8 +25,8 @@ import com.mc1501home.myapp.service.MemberService;
  * Handles requests for the application home page.
  */
 @Controller
-public class FoodController {
-	private final static String MAPPING = "/board/";
+public class MemberController {
+	private final static String MAPPING = "/member/";
 	
 	@Autowired
 	private MemberService service;
@@ -45,7 +45,9 @@ public class FoodController {
 		if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
-		}  else if ("read".equalsIgnoreCase(action)) {
+		} else if ("merge".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);

@@ -11,8 +11,9 @@ import com.mc1501home.myapp.util.CommonUtil;
 
 
 
+
 @Service
-public class BoardService {
+public class MemberService {
 
 	@Autowired
 	private ShareDao dao;
@@ -21,16 +22,22 @@ public class BoardService {
 	private CommonUtil commonUtil;
 
 	public Object getList(Object dataMap) {
-		String sqlMapId = "board.list";
+		String sqlMapId = "member.list";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+	public Object getMemberList(Object dataMap) {
+		String sqlMapId = "authoritymember.list";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		
 		return resultObject;
 	}
 
-
 	public Object getObject(Object dataMap) {
-		String sqlMapId = "board.read";
+		String sqlMapId = "member.read";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
@@ -38,7 +45,7 @@ public class BoardService {
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("BOARD_SEQ");
+		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
 		
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();
@@ -76,6 +83,4 @@ public class BoardService {
 		
 		return resultObject;
 	}
-	
-	
 }
