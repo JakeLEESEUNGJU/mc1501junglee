@@ -9,7 +9,7 @@
     <div class="container marketing">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>in 2018 By cla:p.</p>
+        <p>in 2018 By clap.</p>
       </footer>
 	</div><!-- /.container -->
 
