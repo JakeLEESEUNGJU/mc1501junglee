@@ -7,7 +7,7 @@
 <mapper namespace="board">
 	<select id="list" resultType="Map" parameterType="Map">
 		select 
-			COMMON_CODE_ID <!-- 공통 코드_ID -->
+			TITLE <!-- 공통 코드_ID -->
 			, NAME <!-- 명칭 -->
 			, ORDER_NUMBER <!-- 순서 -->
 			, ATTRIBUTION_1 <!-- 속성_1 -->

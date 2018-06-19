@@ -22,9 +22,9 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="<c:url value='/'/>">Home</a></li>
-                <li><a href="<c:url value='/board/board'/>">Board</a></li>
-                <li><a href="<c:url value='/sul-go/sul-go'/>">Sul-Go?</a></li>
-                <li><a href="<c:url value='/coldhot/coldhot'/>">Cold/Hot?</a></li>
+                <li><a href="<c:url value='/board/list'/>">Board</a></li>
+                <li><a href="<c:url value='/getjob/list'/>">Sul-Go?</a></li>
+                <li><a href="<c:url value='/foodstore/list'/>">Cold/Hot?</a></li>
 
 
                 <!-- nav dropdown bar eliminated -->

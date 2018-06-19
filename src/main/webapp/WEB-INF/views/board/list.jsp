@@ -59,9 +59,9 @@
 										<td><a
 											href="<c:url value="/board/read?TITLE=${resultData.BOARD_SEQ}" />">
 												${resultData.TITLE}</a></td>
-										<td>${resultData.MEMBER_SEQ}</td>
-										<td>${resultData.TELEPHONE}</td>
-										<td>${resultData.ORDER_NUMBER}</td>
+										<td>${resultData.NAME}</td>
+										<td>${resultData.REGISTRY_DATE}</td>
+										<td>${resultData.VIEWS}</td>
 										<td><a
 											href="<c:url value="/organization/update?ORGANIZATION_SEQ=${resultData.ORGANIZATION_SEQ}&forwardView=/organization/edit" />">
 												Update</a></td>
