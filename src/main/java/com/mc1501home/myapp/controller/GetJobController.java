@@ -26,7 +26,7 @@ import com.mc1501home.myapp.service.MemberService;
  */
 @Controller
 public class GetJobController {
-	private final static String MAPPING = "/board/";
+	private final static String MAPPING = "/getjobboard/";
 	
 	@Autowired
 	private MemberService service;
