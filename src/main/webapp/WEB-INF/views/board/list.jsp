@@ -43,11 +43,11 @@
 							id="dataTables-example">
 							<thead>
 								<tr>
-									<th class="text-center">번호</th>
-									<th class="text-center">제목</th>
-									<th class="text-center">작성자</th>
-									<th class="text-center">날짜</th>
-									<th class="text-center">조회수</th>
+									<th class="text-center">No.</th>
+									<th class="text-center">Title</th>
+									<th class="text-center">Author</th>
+									<th class="text-center">Date</th>
+									<th class="text-center">View</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -62,15 +62,6 @@
 										<td>${resultData.NAME}</td>
 										<td>${resultData.REGISTRY_DATE}</td>
 										<td>${resultData.VIEWS}</td>
-										<td><a
-											href="<c:url value="/organization/update?ORGANIZATION_SEQ=${resultData.ORGANIZATION_SEQ}&forwardView=/organization/edit" />">
-												Update</a></td>
-										<td><a
-											href="<c:url value="/organization/list?ORGANIZATION_SEQ=${resultData.PARENT_ORGANIZATION_SEQ}" />">
-												Parent(${resultData.PARENT_ORGANIZATION_SEQ})</a></td>
-										<td><a
-											href="<c:url value="/organization/list?PARENT_ORGANIZATION_SEQ=${resultData.ORGANIZATION_SEQ}" />">
-												Child (${resultData.NAME})</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
