@@ -19,6 +19,31 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value='/resources/css/carousel.css'/>" rel="stylesheet">
+    <link href="<c:url value='/resources/css/custom.css'/>" rel="stylesheet">
+    
+    
+     <style>
+    .wrap {
+      width: 500px;
+    }
+    .wrap textarea {
+      width: 100%;
+      resize: none;
+      overflow-y: hidden; /* prevents scroll bar flash */
+      padding: 1.1em; /* prevents text jump on Enter keypress */
+      padding-bottom: 0.2em;
+      line-height: 1.6;
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('.wrap').on( 'keyup', 'textarea', function (e){
+        $(this).css('height', 'auto' );
+        $(this).height( this.scrollHeight );
+      });
+      $('.wrap').find( 'textarea' ).keyup();
+    });
+  </script>
 </head>
     
 </head>

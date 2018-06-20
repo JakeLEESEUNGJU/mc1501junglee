@@ -33,8 +33,8 @@ public class BoardService {
 		String sqlMapId = "board.read";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
-		
 		return resultObject;
+		
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {

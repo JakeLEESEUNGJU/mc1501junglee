@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <html>
@@ -7,25 +8,59 @@
 
 </head>
 
-  <body>
+<body>
 
-    <!-- Carousel
+	<!-- Carousel
     ================================================== -->
-    <div class="carousel">
-      
-      <div class>
-        <div class="item">
-          <div class="container">
-            <div class="carousel-caption" style=" margin-bottom: 20px;">
-              <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501Group</h2>
-              <p  style="font-size:30px;">Multicampus GetJob Board.</p>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      
-    </div>
+	<div class="carousel">
 
-   
-</body></html>
+		<div class>
+			<div class="item">
+				<div class="container">
+					<div class="carousel-caption" style="margin-bottom: 20px;">
+						<h2 class="featurette-heading"
+							style="vertical-align: top; font-size: 130px;">MC1501Group</h2>
+						<p style="font-size: 30px;">Multicampus Food Board.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Marketing messaging and featurettes
+    ================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+	<!-- Three columns of text below the carousel -->
+	<div class="container marketing">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="panel panel-default ">
+					<div class="panel-heading">FoodStore Board</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body">
+					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
+						<div class="col-lg-6">
+							<a href="${resultData.CONTENT }">
+							<img class="img-circle" src="<c:url value='${resultData.ITEM }'/>"
+								alt="${resultData.CONTENT }" width="140" height="140">
+								</a>
+							<h2>${resultData.TITLE}</h2>
+							<!-- <p>board indicator </p> -->
+						</div>
+					</c:forEach>
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+
+			</div>
+			<!-- food calendar -->
+			<div class="col-lg-6"><img src="<c:url value='/resources/images/foodcalendar.jpg'/>"></div></div>
+
+
+		</div>
+		<!-- /.container -->
+</body>
+</html>

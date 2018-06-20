@@ -52,7 +52,9 @@ public class BoardController {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
-		} 
+		} else if ("merge".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+		}
 		
 		if(forwardView != null){
 			viewName = forwardView;
@@ -63,6 +65,7 @@ public class BoardController {
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);
+		
 		return modelandView;
 	}
 }

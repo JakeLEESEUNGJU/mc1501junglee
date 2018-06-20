@@ -7,83 +7,63 @@
 <mapper namespace="board">
 	<select id="list" resultType="Map" parameterType="Map">
 		select
-		MC_BOARD_SEQ
+		MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
 		, MB.TITLE AS TITLE
 		, MB.REGISTRY_DATE AS REGISTRY_DATE
 		, MB.AUTHORITY_ID AS AUTHORITY_ID
-		, MM.NAME 
+		, MB.VIEWS AS VIEWS
+		, MM.NAME AS NAME
 		 from MC_BOARD MB INNER JOIN MC_MEMBER MM
 		 ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
-		 WHERE MB.CATEGORY = 'BOARD'
+		 WHERE MB.CATEGORY = #{CATEGORY}
 		
 		
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
 		select
-		COMMON_CODE_ID <!-- 공통 코드_ID -->
-		, NAME <!-- 명칭 -->
-		, ORDER_NUMBER <!-- 순서 -->
-		, ATTRIBUTION_1 <!-- 속성_1 -->
-		, ATTRIBUTION_2 <!-- 속성_2 -->
-		, DESCRIPTION <!-- 코드설명 -->
-		, SYSTEM_CODE_YN <!-- 초기 시스템 코드 여부 -->
-		, USE_YN <!-- 사용 여부 -->
-		, PARENT_COMMON_CODE_ID <!-- 상위 공통 코드 ID -->
-		, REGISTER_SEQ <!-- 등록자SEQ -->
-		, REGISTRY_DATE <!-- 등록일자 -->
-		, MODIFIER_SEQ <!-- 수정자_SEQ -->
-		, MODIFY_DATE <!-- 수정일자 -->
-		from CIP_COMMON_CODE
-		where COMMON_CODE_ID = #{COMMON_CODE_ID}
+		MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
+		, MB.TITLE AS TITLE
+		, MB.CONTENT AS CONTENT
+		, MB.REGISTRY_DATE AS REGISTRY_DATE
+		, MB.AUTHORITY_ID AS AUTHORITY_ID
+		, MB.VIEWS AS VIEWS
+		, MM.NAME AS NAME
+		 from MC_BOARD MB INNER JOIN MC_MEMBER MM
+		 ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
+		 WHERE MB.MC_BOARD_SEQ = #{MC_BOARD_SEQ}
 	</select>
 
 	<insert id="merge" parameterType="Map">
-		MERGE INTO CIP_COMMON_CODE CIP1
-		USING (SELECT #{COMMON_CODE_ID} AS COMMON_CODE_ID FROM DUAL) CIP2
-		ON (CIP1.COMMON_CODE_ID = CIP2.COMMON_CODE_ID)
+		MERGE INTO MC_BOARD MC1
+		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ FROM DUAL) MC2
+		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
 		WHEN MATCHED THEN
 		UPDATE SET
 		NAME = #{NAME} <!-- 명칭 -->
-		, ORDER_NUMBER = #{ORDER_NUMBER} <!-- 순서 -->
-		, ATTRIBUTION_1 = #{ATTRIBUTION_1} <!-- 속성_1 -->
-		, ATTRIBUTION_2 = #{ATTRIBUTION_2} <!-- 속성_2 -->
-		, DESCRIPTION = #{DESCRIPTION} <!-- 코드설명 -->
-		, SYSTEM_CODE_YN = #{SYSTEM_CODE_YN} <!-- 초기 시스템 코드 여부 -->
-		, USE_YN = #{USE_YN} <!-- 사용 여부 -->
-		, PARENT_COMMON_CODE_ID = #{PARENT_COMMON_CODE_ID} <!-- 상위 공통 코드 ID -->
-		, MODIFIER_SEQ = #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
+		, TITLE = #{TITLE} <!-- 제목 -->
+		, CONTENT = #{CONTENT} <!-- 내용 -->
+		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, MODIFY_DATE = sysdate <!-- 수정일자 -->
+		, ITEM = #{ITEM} <!-- 첨부 -->
 		WHEN NOT MATCHED THEN
 		INSERT (
-		COMMON_CODE_ID <!-- 공통 코드_ID -->
-		, NAME <!-- 명칭 -->
-		, ORDER_NUMBER <!-- 순서 -->
-		, ATTRIBUTION_1 <!-- 속성_1 -->
-		, ATTRIBUTION_2 <!-- 속성_2 -->
-		, DESCRIPTION <!-- 코드설명 -->
-		, SYSTEM_CODE_YN <!-- 초기 시스템 코드 여부 -->
-		, USE_YN <!-- 사용 여부 -->
-		, PARENT_COMMON_CODE_ID <!-- 상위 공통 코드 ID -->
-		, REGISTER_SEQ <!-- 등록자SEQ -->
-		, REGISTRY_DATE <!-- 등록일자 -->
-		, MODIFIER_SEQ <!-- 수정자_SEQ -->
-		, MODIFY_DATE <!-- 수정일자 -->
+		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
+		, NAME  <!-- 명칭 -->
+		, TITLE <!-- 제목 -->
+		, CONTENT <!-- 내용 -->
+		, REGISTER_SEQ  <!-- 수정자_SEQ -->
+		, REGISTRY_DATE <!-- 수정일자 -->
+		, ITEM <!-- 첨부 -->
 		)
 		values(
-		#{COMMON_CODE_ID} <!-- 공통 코드_ID -->
+		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
 		, #{NAME} <!-- 명칭 -->
-		, #{ORDER_NUMBER} <!-- 순서 -->
-		, #{ATTRIBUTION_1} <!-- 속성_1 -->
-		, #{ATTRIBUTION_2} <!-- 속성_2 -->
-		, #{DESCRIPTION} <!-- 코드설명 -->
-		, #{SYSTEM_CODE_YN} <!-- 초기 시스템 코드 여부 -->
-		, #{USE_YN} <!-- 사용 여부 -->
-		, #{PARENT_COMMON_CODE_ID} <!-- 상위 공통 코드 ID -->
-		, #{REGISTER_SEQ} <!-- 등록자SEQ -->
-		, sysdate <!-- 등록일자 -->
-		, #{REGISTER_SEQ} <!-- 수정자_SEQ -->
+		, #{TITLE} <!-- 제목 -->
+		, #{CONTENT} <!-- 내용 -->
+		, #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, sysdate <!-- 수정일자 -->
+		, #{ITEM} <!-- 첨부 -->
 		)
 	</insert>
 

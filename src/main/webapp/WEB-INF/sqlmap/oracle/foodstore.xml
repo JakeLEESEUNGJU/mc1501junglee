@@ -4,17 +4,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="getjob">
+<mapper namespace="foodstore">
 	<select id="list" resultType="Map" parameterType="Map">
 		select
 		MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
 		, MB.TITLE AS TITLE
 		, MB.REGISTRY_DATE AS REGISTRY_DATE
 		, MB.AUTHORITY_ID AS AUTHORITY_ID
-		, MB.VIEWS AS VIEWS
 		, MB.ITEM AS ITEM
-		, MB.CONTENT AS CONTENT
 		, MM.NAME AS NAME
+		, MB.CONTENT AS CONTENT
 		 from MC_BOARD MB INNER JOIN MC_MEMBER MM
 		 ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
 		 WHERE MB.CATEGORY = #{CATEGORY}

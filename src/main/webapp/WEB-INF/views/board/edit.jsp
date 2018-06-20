@@ -1,118 +1,86 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Edit</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            	<div class="container">
-	<table class="table table-bordered">
-	   <tbody>
-	       <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
-	           <tr>
-	               <th>제목: </th>
-	               <td><input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <th>내용: </th>
-	               <td><textarea cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" style="height:300px;"></textarea></td>
-	           </tr>
-	           <tr>
-	               <th>첨부파일: </th>
-	               <td><input type="text" placeholder="파일을 선택하세요. " name="filename" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <th>비밀번호: </th>
-	               <td><input type="password" placeholder="비밀번호를 입력하세요" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <td colspan="2">
-	                   <input type="button" value="등록" onclick="sendData()" class="btn btn-default pull-right"/>
-	                   <input type="button" value="RESET" class="btn btn-default pull-left"/>
-	                   <a class="btn btn-default pull-right" href="./board.html">글 목록</a>
-	               </td>
-	           </tr>
-	       </form>
-	   </tbody>
-	</table>
-	</div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-        
-        
-<%--         
-        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- Carousel
+    ================================================== -->
+<div class="carousel">
 
-<html>
-<head>
-</head>
-<body>
-    <!-- Carousel
-    ================================================== -->
-    <div class="carousel" style="height:250px; margin-bottom: 20px;">
-        <div class="item" style="height:200px;">
-          <div class="container">
-            <div class="carousel-caption" style=" margin-bottom: 20px;">
-              <p  style="font-size:30px;">Multicampus The Algorithm Group.</p>
-            </div>
-        </div>
-      </div>
-    </div>
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-   <!--게시판 목록 -->
-    <!-- 타이틀  -->
-	<h2 class="text-center" style="margin-bottom:20px;">Board</h2>
-	  <div class="row justify-content-md-center">
-	    <div class="col-md-auto text-center">
-	          <p>수업에 관련된 URI 등을 공유합니다! <br>
-	          	</p>
-	          <br>
-	    </div>
-	  </div>
-   
-	<div class="container">
-	<table class="table table-bordered">
-	   <tbody>
-	       <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
-	           <tr>
-	               <th>제목: </th>
-	               <td><input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <th>내용: </th>
-	               <td><textarea cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" style="height:300px;"></textarea></td>
-	           </tr>
-	           <tr>
-	               <th>첨부파일: </th>
-	               <td><input type="text" placeholder="파일을 선택하세요. " name="filename" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <th>비밀번호: </th>
-	               <td><input type="password" placeholder="비밀번호를 입력하세요" class="form-control"/></td>
-	           </tr>
-	           <tr>
-	               <td colspan="2">
-	                   <input type="button" value="등록" onclick="sendData()" class="btn btn-default pull-right"/>
-	                   <input type="button" value="RESET" class="btn btn-default pull-left"/>
-	                   <a class="btn btn-default pull-right" href="./board.html">글 목록</a>
-	               </td>
-	           </tr>
-	       </form>
-	   </tbody>
-	</table>
+	<div class>
+		<div class="item">
+			<div class="container">
+				<div class="carousel-caption" style="margin-bottom: 20px;">
+					<h2 class="featurette-heading"
+						style="vertical-align: top; font-size: 130px;">MC1501Group</h2>
+					<p style="font-size: 30px;">Multicampus Free Board</p>
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+</div>
+<!-- ============================================= -->
+
+<div class="container marketing">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Free Board</div>
+				<table>
+					<tr>
+						<td>
+							<form role="form" method="POST"
+								action="<c:url value='/board/merge?MC_BOARD_SEQ=${resultMap}' />">
+								<table width="1200">
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Title</td>
+										<td><input name="title" size="50" maxlength="100"
+											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
+											value="${resultMap.TITLE }"></td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Name</td>
+										<td><input readonly name="name" size="50" maxlength="50"
+											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
+											value="${resultMap.NAME }"></td>
+										<td>&nbsp;</td>
+									</tr>
+
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Content</td>
+										<td><textarea name="memo" cols="50" rows="13"
+												style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; width: 1100; resize: none;"> ${resultMap.CONTENT }
+						 </textarea></td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr height="1" bgcolor="#82B5DF">
+										<td colspan="4"></td>
+									</tr>
+									<tr align="center">
+										<td>&nbsp;</td>
+										<td colspan="2"><input type=submit value="Modify">
+											<input type=button value="Cancle"
+											onclick="window.location.href='<c:url value='/board/list?CATEGORY=BOARD' />'">
+										<td>&nbsp;</td>
+									</tr>
+								</table>
+							</form>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
-</html> --%>
-        

@@ -1,60 +1,106 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-       <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Read</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Form Elements
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form" method="POST" action="<c:url value='/commonCode/edit' />">
-                                    <input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}">
-                                    <div class="form-group">
-										<label>COMMON_CODE_ID Static Control</label>
-										<p class="form-control-static">${resultMap.COMMON_CODE_ID}</p>
-                                    </div>
-	                                    <div class="form-group">
-											<label>NAME Static Control</label>
-											<p class="form-control-static">${resultMap.NAME}</p>
-	                                    </div>
-                                        <div class="form-group">
-											<label>DESCRIPTION Static Control</label>
-											<pre class="form-control-static">${resultMap.DESCRIPTION}</pre>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Add Button</button>
-										<a href="<c:url value='/commonCode/list?PARENT_COMMON_CODE_ID=${resultMap.PARENT_COMMON_CODE_ID}' />"> Forware Lis</a>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-										<label>PARENT_COMMON_CODE_ID Static Control</label>
-										<p class="form-control-static">${resultMap.PARENT_COMMON_CODE_ID}</p>
-                                    </div>
-                                    <div class="form-group">
-										<label>ORDER_NUMBER Static Control</label>
-										<p class="form-control-static">${resultMap.ORDER_NUMBER}</p>
-                                    </div>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+
+
+<body>
+	<!-- Carousel
+    ================================================== -->
+	<div class="carousel">
+
+		<div class>
+			<div class="item">
+				<div class="container">
+					<div class="carousel-caption" style="margin-bottom: 20px;">
+						<h2 class="featurette-heading"
+							style="vertical-align: top; font-size: 130px;">MC1501Group</h2>
+						<p style="font-size: 30px;">Multicampus Free Board</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- ============================================= -->
+	<div class="container marketing">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Free Board</div>
+					<form role="form" method="POST"
+						action="<c:url value='/board/edit' />">
+						<table>
+							<tr>
+								<td>
+									<table width="100%" cellpadding="0" cellspacing="0" border="0">
+										<tr style="text-align: center;">
+											<td width="5"></td>
+											<td>${resultMap.TITLE }</td>
+											<td width="5"></td>
+										</tr>
+									</table>
+									<table width="100%">
+
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+										<tr>
+											<td align="left" width="319">No.${resultMap.MC_BOARD_SEQ }</td>
+											<td align="right" width="319">${resultMap.NAME }</td>
+
+										</tr>
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+										<tr>
+											<td width="0"></td>
+											<td align="right" width="319">${resultMap.REGISTRY_DATE }</td>
+										</tr>
+										<tr>
+											<td width="0"></td>
+											<td align="right" width="50">view: ${resultMap.VIEWS }</td>
+										</tr>
+										<tr>
+											<td align="center" width="500" colspan="2" height="200">${resultMap.CONTENT }
+										</tr>
+
+										<tr height="1" bgcolor="#dddddd">
+											<td colspan="4" width="407"></td>
+										</tr>
+										<tr height="1" bgcolor="#82B5DF">
+											<td colspan="4" width="407"></td>
+										</tr>
+										<tr align="right">
+											<td colspan="2" width="399"><input type=submit
+												value="write" OnClick="window.location='write.jsp'">
+												<input type=button value="reply"> <a
+												href="<c:url value='/board/list?CATEGORY=BOARD' />">Back
+													to List</a> <a
+												href="<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">edit</a>
+												<input type=button value="delete">
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+</body>

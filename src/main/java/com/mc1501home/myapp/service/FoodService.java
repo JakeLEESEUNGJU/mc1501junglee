@@ -21,7 +21,7 @@ public class FoodService {
 	private CommonUtil commonUtil;
 
 	public Object getList(Object dataMap) {
-		String sqlMapId = "board.list";
+		String sqlMapId = "foodstore.list";
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		
@@ -32,7 +32,7 @@ public class FoodService {
 
 
 	public Object getObject(Object dataMap) {
-		String sqlMapId = "board.read";
+		String sqlMapId = "foodstore.read";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
@@ -53,7 +53,7 @@ public class FoodService {
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		sqlMapId = "member.read";
+		sqlMapId = "foodstore.read";
 		
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
@@ -67,12 +67,12 @@ public class FoodService {
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// delete Mother record authority
-		sqlMapId = "member.delete";
+		sqlMapId = "foodstore.delete";
 
 		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
 		// get Member List
-		sqlMapId = "member.list";
+		sqlMapId = "foodstore.list";
 		
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		

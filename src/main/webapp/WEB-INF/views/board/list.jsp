@@ -8,7 +8,7 @@
           <div class="container">
             <div class="carousel-caption" style=" margin-bottom: 20px;">
               <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501Group</h2>
-              <p  style="font-size:30px;">Multicampus Free Board</p>
+              <p  style="font-size:30px;">Multicampus Free Board.</p>
             </div>
           </div>
         </div>
@@ -16,7 +16,12 @@
       </div>
       
     </div>	
-	<!-- /.row -->
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+	<!-- Wrap the rest of the page in another container to center all the content. -->
+	<!-- Three columns of text below the carousel -->
+	
+	<div class="container marketing">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
@@ -38,11 +43,12 @@
 							<tbody>
 								<c:forEach items="${resultList}" var="resultData"
 									varStatus="loop">
+									
 									<tr
 										class="${(loop.index+1)%2 == 2 ? 'odd gradeX' : 'even gradeC'}">
 										<td>${loop.index+1}</td>
 										<td><a
-											href="<c:url value="/board/read?TITLE=${resultData.BOARD_SEQ}" />">
+											href="<c:url value="/board/read?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}" />">
 												${resultData.TITLE}</a></td>
 										<td>${resultData.NAME}</td>
 										<td>${resultData.REGISTRY_DATE}</td>

@@ -3,59 +3,81 @@ package com.mc1501home.myapp.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mc1501home.myapp.dao.ShareDao;
+import com.mc1501home.myapp.util.CommonUtil;
 
 
 
 @Service
 public class GetJobService {
+
+	@Autowired
+	private ShareDao dao;
+	
+	@Autowired
+	private CommonUtil commonUtil;
+
+	public Object getList(Object dataMap) {
+		String sqlMapId = "getjob.list";
+
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		
+		
+		return resultObject;
+	}
+
+
 	public Object getObject(Object dataMap) {
-		Map<String, Object> resultObject = new HashMap<String, Object>();
+		String sqlMapId = "getjob.read";
+
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
-		final char SPACE_BAR = ' ';
-			
-		/* set protocol */
-		Map<String, Object> protocol = new HashMap<String, Object>();
-		protocol.put("10", "경기도");
-		protocol.put("20", "전라도");
-		protocol.put("30", "경상도");
-		protocol.put("100", "수영");
-		protocol.put("200", "음악감상");
-		protocol.put("300", "공부");
-		/* end set protocol */
+		return resultObject;
+	}
+
+	public Object saveObject(Map<String, Object> dataMap) {
+		String uniqueSequence = (String) dataMap.get("BOARD_SEQ");
 		
+		if("".equals(uniqueSequence)){
+			uniqueSequence = commonUtil.getUniqueSequence();
+		}
+		dataMap.put("MEMBER_SEQ", uniqueSequence);
+		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
+		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		
-		//1. addr
-			//
-		String addrName = (String) protocol.get(((Map)dataMap).get("addr"));
+		String sqlMapId = "member.merge";
+
+		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		//2. hobbies
-			//복수개 선택이 가능한 hobbies를 하나의 string에 저장.
-//		StringBuffer hobbies = new StringBuffer();
-//		for(String hobbyKey : (String[]) protocol.get(((Map)dataMap).get("hobbies"))) {
-//				//key값으로 전달된 hobby를 실제 값(수영, 음악감상 등)으로 변경
-//			String hobbyName = (String) protocol.get(hobbyKey);
-//			hobbies.append(hobbyName);
-//			hobbies.append(SPACE_BAR);
-//		}
+		sqlMapId = "getjob.read";
 		
-		resultObject.put("email", ((Map)dataMap).get("email"));
-		resultObject.put("emailCheck", ((Map)dataMap).get("emailCheck"));
-		resultObject.put("password", ((Map)dataMap).get("password"));
-		resultObject.put("passwordCheck", ((Map)dataMap).get("passwordCheck"));
-		resultObject.put("name", ((Map)dataMap).get("name"));
-		resultObject.put("birthday", ((Map)dataMap).get("birthday"));
-		resultObject.put("telNum", ((Map)dataMap).get("telNum"));
-		resultObject.put("addr", addrName);
-//		resultObject.put("hobbies", hobbies);
-		
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		return resultObject;
 	}
+
+	public Object deleteObject(Object dataMap) {
+		// delete child record authority
+		String sqlMapId = "authorityRmember.delete";
+
+		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+
+		// delete Mother record authority
+		sqlMapId = "getjob.delete";
+
+		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
+
+		// get Member List
+		sqlMapId = "getjob.list";
+		
+		Object resultObject = dao.getList(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
 	
-	/*
-	 * 
-	 * 	
-		}
-	 */
+	
 }

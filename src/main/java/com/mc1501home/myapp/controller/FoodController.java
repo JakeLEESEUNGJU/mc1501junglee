@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mc1501home.myapp.service.MemberService;
+import com.mc1501home.myapp.service.FoodService;
 
 /**
  * Handles requests for the application home page.
@@ -29,7 +29,7 @@ public class FoodController {
 	private final static String MAPPING = "/foodstore/";
 	
 	@Autowired
-	private MemberService service;
+	private FoodService service;
 	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
