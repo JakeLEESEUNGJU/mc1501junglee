@@ -44,7 +44,7 @@
               <!--  leftside nav bar -->
               </ul>
               <ul class="nav navbar-nav navbar-right">
-			     <li><a href="<c:url value='/signup/signup'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			     <li><a href="<c:url value='/login/signup'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 			     <li><a href="<c:url value='/login/login'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 		      </ul>              
             </div>

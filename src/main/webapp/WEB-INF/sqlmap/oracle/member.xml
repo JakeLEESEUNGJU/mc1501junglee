@@ -54,28 +54,26 @@
 			WHERE MEMBER_SEQ = #{MEMBER_SEQ}
 		</selectKey-->
 	
-		MERGE INTO CIP_MEMBER CIP1
-		     USING (SELECT #{MEMBER_SEQ} AS MEMBER_SEQ FROM DUAL) CIP2
-		        ON (CIP1.MEMBER_SEQ = CIP2.MEMBER_SEQ)
+		MERGE INTO MC_MEMBER MM1
+		     USING (SELECT #{MEMBER_SEQ} AS MEMBER_SEQ FROM DUAL) MM2
+		        ON (MM1.MEMBER_SEQ = MM2.MEMBER_SEQ)
 		 WHEN MATCHED THEN
 		    UPDATE SET
-				MEMBER_ID = #{MEMBER_ID} <!-- 회원 ID -->
-				, PASSWORD = #{PASSWORD} <!-- 암호 -->
-				, NAME = #{NAME} <!-- 명칭 -->
-				, EMAIL = #{EMAIL} <!-- EMAIL -->
-				, CELLPHONE = #{CELLPHONE} <!-- 휴대폰번호 -->
-				, ORGANIZATION_SEQ = #{ORGANIZATION_SEQ} <!-- 조직 일련번호 -->
-				, MODIFIER_SEQ = #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
-				, MODIFY_DATE = sysdate <!-- 수정일자 -->
+				 EMAIL = #{EMAIL} 
+				, PASSWORD = #{PASSWORD} 
+				, NAME = #{NAME} 
+				, ADRESS = #{ADRESS} 
+				, INTEREST = #{INTEREST} 
+				, MODIFIER_SEQ = M0006 
+				, MODIFY_DATE = sysdate 
 		 WHEN NOT MATCHED THEN
 		    INSERT (
 				MEMBER_SEQ <!-- 회원_SEQ -->
-				, MEMBER_ID <!-- 회원 ID -->
+				, EMAIL <!-- EMAIL -->
 				, PASSWORD <!-- 암호 -->
 				, NAME <!-- 명칭 -->
-				, EMAIL <!-- EMAIL -->
-				, CELLPHONE <!-- 휴대폰번호 -->
-				, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
+				, ADRESS <!-- 휴대폰번호 -->
+				, INTEREST <!-- 조직 일련번호 -->
 				, REGISTER_SEQ <!-- 등록자SEQ -->
 				, REGISTRY_DATE <!-- 등록일자 -->
 				, MODIFIER_SEQ <!-- 수정자_SEQ -->
@@ -83,15 +81,14 @@
 			)
 			values(
 				#{MEMBER_SEQ} <!-- 회원_SEQ -->
-				, #{MEMBER_ID} <!-- 회원 ID -->
+				, #{EMAIL} <!-- EMAIL -->
 				, #{PASSWORD} <!-- 암호 -->
 				, #{NAME} <!-- 명칭 -->
-				, #{EMAIL} <!-- EMAIL -->
-				, #{CELLPHONE} <!-- 휴대폰번호 -->
-				, #{ORGANIZATION_SEQ} <!-- 조직 일련번호 -->
-				, #{REGISTER_SEQ} <!-- 등록자SEQ -->
+				, #{ADRESS} <!-- 회원 ID -->
+				, #{INTEREST} <!-- 휴대폰번호 -->
+				, M0006 <!-- 등록자SEQ -->
 				, sysdate <!-- 등록일자 -->
-				, #{REGISTER_SEQ} <!-- 수정자_SEQ -->
+				, M0006 <!-- 수정자_SEQ -->
 				, sysdate <!-- 수정일자 -->
 			)
 	</insert>

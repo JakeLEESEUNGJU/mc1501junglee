@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mc1501home.myapp.service.SignupService;
+import com.mc1501home.myapp.service.LoginService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+
 @RequestMapping(value = "signup")
 public class SignupController {
 	
 	@Autowired
-	private SignupService service;
+	private LoginService service;
 
 	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
