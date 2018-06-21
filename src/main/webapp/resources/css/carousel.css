@@ -1,5 +1,9 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
+input:focus {
+	outline: none;
+}
+
 /* Padding below the footer and lighter body text */
 
 body {

@@ -28,9 +28,8 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Free Board</div>
-					<form role="form" method="POST"
-						action="<c:url value='/board/edit' />">
-						<table align="center" width="100%">
+					<div class="panel-body">
+						<table width="100%">
 							<tr>
 								<td>
 									<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -86,20 +85,22 @@
 										<tr height="1" bgcolor="#82B5DF">
 											<td colspan="4" width="407"></td>
 										</tr>
-										<tr align="right">
-											<td colspan="2" width="399"><input type=submit
-												value="write" OnClick="window.location='write.jsp'">
-												<input type=button value="reply"> 
-												<input type=button value="modify" onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
-												<input type=button value="delete">
-										</tr>
+
 									</table>
 								</td>
 							</tr>
 						</table>
-					</form>
+					</div>
 				</div>
 			</div>
+				<div align="right">
+						<input type=button value="write" class="btn btn-default"
+							onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' "> 
+							<input type=button value="modify" class="btn btn-default"
+							onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
+							<input type=button value="delete" class="btn btn-default"
+							onclick="location.href='<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
+				<div>
 
 		</div>
 	</div>

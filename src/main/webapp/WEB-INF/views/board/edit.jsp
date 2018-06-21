@@ -24,19 +24,21 @@
 <div class="container marketing">
 	<div class="row">
 		<div class="col-lg-12">
+			<form role="form" method="POST"
+								action="<c:url value='/member/edit' />">
 			<div class="panel panel-default">
 				<div class="panel-heading">Free Board</div>
-				<table align="center" width="100%">
-					<tr>
-						<td>
-							<form role="form" method="POST"
-								action="<c:url value='/board/merge?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">
-								<table >
+				<div class="panel-body">
+					<div style="height: 100%; width: 100%" align="center">
+					<table width="100%">
+						<tr>
+							<td>
+								<table width="100%">
 									<tr>
 										<td>&nbsp;</td>
 										<td align="center">Title</td>
-										<td><input name="title" size="50" maxlength="100"
-											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
+										<td><input name="title"  maxlength="100" 
+											style="border: none; border-right: 0px; width:100%; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
 											value="${resultMap.TITLE }"></td>
 										<td>&nbsp;</td>
 									</tr>
@@ -46,7 +48,7 @@
 									<tr>
 										<td>&nbsp;</td>
 										<td align="center">Name</td>
-										<td><input readonly name="name" size="50" maxlength="50"
+										<td><input readonly name="name"  maxlength="125"
 											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
 											value="${resultMap.NAME }"></td>
 										<td>&nbsp;</td>
@@ -58,8 +60,8 @@
 									<tr>
 										<td>&nbsp;</td>
 										<td align="center">Content</td>
-										<td><textarea name="memo" cols="50" rows="13"
-												style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; width: 1100; resize: none;"> ${resultMap.CONTENT }
+										<td><textarea name="memo" cols="125" rows="40"
+											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }
 						 				</textarea></td>
 										<td>&nbsp;</td>
 									</tr>
@@ -69,18 +71,21 @@
 									<tr height="1" bgcolor="#82B5DF">
 										<td colspan="4"></td>
 									</tr>
-									<tr align="center">
-										<td>&nbsp;</td>
-										<td colspan="2"><input type=submit value="Modify">
-											<input type=button value="Cancle"
-											onclick="window.location.href='<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />'">
-										<td>&nbsp;</td>
-									</tr>
 								</table>
-							</form>
-				</table>
+					</table>
+					</div>
+			<div align="right">		
+            <input type="file" name="profile">
+            </div>
 			</div>
-
+				</div>
+				<div align="center">
+						<button type="submit" class="btn btn-default">submit</button>
+						<button class="btn btn-default"	
+							action="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">cancel</button>
+						
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

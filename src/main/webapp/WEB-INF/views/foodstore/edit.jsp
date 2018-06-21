@@ -1,62 +1,93 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Edit</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- Carousel
+    ================================================== -->
+<div class="carousel">
+
+	<div class>
+		<div class="item">
+			<div class="container">
+				<div class="carousel-caption" style="margin-bottom: 20px;">
+					<h2 class="featurette-heading"
+						style="vertical-align: top; font-size: 130px;">MC1501Group</h2>
+					<p style="font-size: 30px;">Multicampus Free Board</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<!-- ============================================= -->
+
+<div class="container marketing">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Free Board</div>
+				<div class="panel-body">
+					<div style="height: 100%; width: 100%" align="center">
+					<table width="100%">
+						<tr>
+							<td>
+								<table width="100%">
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Title</td>
+										<td><input name="title"  maxlength="100" 
+											style="border: none; border-right: 0px; width:100%; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
+											value="${resultMap.TITLE }"></td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Name</td>
+										<td><input readonly name="name"  maxlength="125"
+											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
+											value="${resultMap.NAME }"></td>
+										<td>&nbsp;</td>
+									</tr>
+
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td align="center">Content</td>
+										<td><textarea name="memo" cols="125" rows="40"
+											style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }
+						 				</textarea></td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr height="1" bgcolor="#dddddd">
+										<td colspan="4"></td>
+									</tr>
+									<tr height="1" bgcolor="#82B5DF">
+										<td colspan="4"></td>
+									</tr>
+								</table>
+					</table>
+					</div>
+			<div align="right">		
+            <input type="file" name="profile">
             </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Form Elements
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form" method="POST" action="<c:url value='/commonCode/merge' />">
-                                        <input type="hidden" name="forwardView" value="/commonCode/read">
-                                        <input type="hidden" name="ATTRIBUTION_1" value="">
-                                        <input type="hidden" name="ATTRIBUTION_2" value="">
-                                        <input type="hidden" name="SYSTEM_CODE_YN" value="System_Code_No">
-                                        <input type="hidden" name="USE_YN" value="Yes">
-                                        <div class="form-group">
-                                            <label>Common ID Name Text Input </label>
-                                            <input class="form-control" type="text" name="COMMON_CODE_ID" value="${resultMap.COMMON_CODE_ID }">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Common Code Name Text Input </label>
-                                            <input class="form-control" type="text" name="NAME" value="${resultMap.NAME }">
-                                        </div>
-                                        <div class="form-group">
-										    <label for="disabledSelect">ORDER_NUMBER Disabled input </label>
-										    <input class="form-control" type="text" name="ORDER_NUMBER" placeholder="1"  value="${resultMap.ORDER_NUMBER }">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>DESCRIPTION Text area</label>
-                                            <textarea class="form-control" rows="3" name="DESCRIPTION" placeholder="Describe yourself here...">${resultMap.DESCRIPTION }</textarea>
-                                        </div>
-                                        <div class="form-group">
-										    <label for="disabledSelect">PARENT_COMMON_CODE_ID Disabled input </label>
-										    <input class="form-control" type="text" name="PARENT_COMMON_CODE_ID" value="${paramMap.PARENT_COMMON_CODE_ID }" readonly>
-                                            <p class="help-block">using Parent UUID method with disabled</p>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">${paramMap.action == 'update' ? 'Update' : 'Insert' } Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+			</div>
+				</div>
+				<table align="center">
+					<tr >
+						<td>&nbsp;</td>
+						<td colspan="2"><input type=submit value="Modify"> 
+						<input type=button value="Cancle"
+							onclick="location.href='<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />'">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+
+		</div>
+	</div>
+</div>
+</body>
