@@ -31,11 +31,30 @@
 				<input type="hidden" name="MEMBER_SEQ" value="M0006">
 				<input type="hidden" name="CATEGORY" value="BOARD">
 				<input type="hidden" name="AUTHORITY_ID" value="AUT001">
-				<input type="hidden" name="forwardView" value="/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ }" />
+				<input type="hidden" name="forwardView" value="/board/read" />
 				<div class="panel panel-default">
 					<div class="panel-heading">Free Board</div>
 					<div class="panel-body">
 						<div style="height: 100%; width: 100%" align="center">
+						<!-- Date Select -->
+							<div class="form-group">
+								<label for="inputStartDate" class="col-sm-2 control-label">StartDate</label>
+								<div class="col-sm-9">
+									<input type="date" name="START_DATE" class="form-control" id=""
+										StartDate"" placeholder="StartDate">
+									<p class="col-sm-1"></p>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="inputEndDate" class="col-sm-2 control-label">EndDate</label>
+								<div class="col-sm-9">
+									<input type="date" name="END_DATE" class="form-control"
+										id="EndDate" placeholder="EndDate">
+									<p class="col-sm-1"></p>
+								</div>
+							</div>
+							<!-- ==================================== -->
 							<table width="100%">
 								<tr>
 									<td>
@@ -66,9 +85,7 @@
 											<tr>
 												<td>&nbsp;</td>
 												<td align="center">Content</td>
-												<td><textarea name="CONTENT" cols="125" rows="40"
-														style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }
-						 				</textarea></td>
+												<td><textarea name="CONTENT" cols="125" rows="40" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
 												<td>&nbsp;</td>
 											</tr>
 											<tr height="1" bgcolor="#dddddd">

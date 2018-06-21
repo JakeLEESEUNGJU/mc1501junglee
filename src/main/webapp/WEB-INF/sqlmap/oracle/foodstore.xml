@@ -6,20 +6,20 @@
 
 <mapper namespace="foodstore">
 	<select id="list" resultType="Map" parameterType="Map">
-		select
-		MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
-		, MB.TITLE AS TITLE
-		, MB.REGISTRY_DATE AS REGISTRY_DATE
-		, MB.AUTHORITY_ID AS AUTHORITY_ID
-		, MB.ITEM AS ITEM
-		, MM.NAME AS NAME
-		, MB.CONTENT AS CONTENT
-		 from MC_BOARD MB INNER JOIN MC_MEMBER MM
-		 ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
-		 WHERE MB.CATEGORY = #{CATEGORY}
-		
-		
-	</select>
+      select
+      MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
+      , MB.TITLE AS TITLE
+      , MB.REGISTRY_DATE AS REGISTRY_DATE
+      , MB.AUTHORITY_ID AS AUTHORITY_ID
+      , MB.ITEM AS ITEM
+      , MM.NAME AS NAME
+      , MB.CONTENT AS CONTENT
+       from MC_BOARD MB INNER JOIN MC_MEMBER MM
+       ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
+       WHERE MB.CATEGORY = #{CATEGORY}
+      
+      
+   </select>
 
 	<select id="read" resultType="Map" parameterType="Map">
 		select
@@ -41,35 +41,36 @@
 		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
 		WHEN MATCHED THEN
 		UPDATE SET
-		NAME = #{NAME} <!-- 명칭 -->
-		, TITLE = #{TITLE} <!-- 제목 -->
+		TITLE = #{TITLE} <!-- 제목 -->
 		, CONTENT = #{CONTENT} <!-- 내용 -->
 		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, MODIFY_DATE = sysdate <!-- 수정일자 -->
 		, ITEM = #{ITEM} <!-- 첨부 -->
 		WHEN NOT MATCHED THEN
 		INSERT (
-		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
-		, NAME  <!-- 명칭 -->
-		, TITLE <!-- 제목 -->
-		, CONTENT <!-- 내용 -->
-		, REGISTER_SEQ  <!-- 수정자_SEQ -->
-		, REGISTRY_DATE <!-- 수정일자 -->
-		, ITEM <!-- 첨부 -->
+		MC_BOARD_SEQ <!-- 글번호 -->
+		, TITLE 	<!-- 제목 -->
+		, CONTENT 	<!-- 내용 -->
+		, REGISTRY_DATE	<!-- 등록날짜 -->
+		, ITEM 	<!-- ITEM -->
+        , CATEGORY	<!-- 카테고리 -->
+        , AUTHORITY_ID	<!-- 권한 ID -->
+        , MEMBER_SEQ	<!-- 멤버 시퀀스 -->
 		)
 		values(
-		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
-		, #{NAME} <!-- 명칭 -->
+		  #{MC_BOARD_SEQ} <!-- 게시글 시퀀스 -->
 		, #{TITLE} <!-- 제목 -->
 		, #{CONTENT} <!-- 내용 -->
-		, #{MEMBER_SEQ} <!-- 수정자_SEQ -->
-		, sysdate <!-- 수정일자 -->
-		, #{ITEM} <!-- 첨부 -->
+		, sysdate <!-- 등록일자 -->
+		, #{ITEM}	<!-- ITEM -->
+        , #{CATEGORY}	<!-- 카테고리 -->
+        , #{AUTHORITY_ID}	<!-- 권한 ID -->
+        , #{MEMBER_SEQ}	<!-- 멤버 시퀀스 -->
 		)
 	</insert>
 
 	<delete id="delete" parameterType="Map">
-		delete from CIP_COMMON_CODE
-		where COMMON_CODE_ID = #{COMMON_CODE_ID}
+		delete from MC_BOARD
+		where MC_BOARD_SEQ = #{MC_BOARD_SEQ}
 	</delete>
 </mapper>

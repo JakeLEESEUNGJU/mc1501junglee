@@ -35,7 +35,7 @@
 							<img class="img-circle" src="<c:url value='${resultData.ITEM}'/>"
 								alt="${resultData.CONTENT }" width="140" height="140">
 								</a>
-							<h2>${resultData.TITLE}</h2>
+							<h2><a href="<c:url value='/getjob/edit?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}'/>">${resultData.TITLE}</a></h2>
 							<!-- <p>board indicator€ </p> -->
 						</div>
 					</c:forEach></div>
