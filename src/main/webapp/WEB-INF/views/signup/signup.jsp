@@ -134,16 +134,7 @@
 	    </div>
 	  </div>
 	  
-	 <!-- 2. email check -->
-	  <div class="form-group" id="emailCheck">
-	    <label for="inputEmailCheck" class="col-sm-2 control-label">Check-Email</label>
-	    <div class="col-sm-9">
-	      <input type="email" name="emailCheck" class="form-control" id="inputEmailCheck" placeholder="Check-Email">
-	      <span id="emailCheckCheckSymbol"></span>
-	      <span id="emailCheckCheckSymbolStatus"></span>
-	      <p class="col-sm-1"></p>
-	    </div>
-	  </div>
+	 
 	  
 	  <!-- 3. pw -->
 	  <div class="form-group" id="password">
