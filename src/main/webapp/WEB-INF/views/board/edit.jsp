@@ -31,7 +31,7 @@
 				<input type="hidden" name="MEMBER_SEQ" value="M0006">
 				<input type="hidden" name="CATEGORY" value="BOARD">
 				<input type="hidden" name="AUTHORITY_ID" value="AUT001">
-				<!--  <input type="hidden" name="forwardView" value="/board/list?CATEGORY=BOARD" /> -->
+				<input type="hidden" name="forwardView" value="/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ }" />
 				<div class="panel panel-default">
 					<div class="panel-heading">Free Board</div>
 					<div class="panel-body">
@@ -86,7 +86,7 @@
 					</div>
 				</div>
 				<div align="center">
-					<button type="submit" class="btn btn-default">submit</button>
+					<button type="submit" class="btn btn-default" >submit</button>
 					<button class="btn btn-default"
 						action="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">cancel</button>
 
