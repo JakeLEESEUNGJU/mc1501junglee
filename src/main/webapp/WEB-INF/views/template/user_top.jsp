@@ -45,12 +45,16 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
 			     <li><a href="<c:url value='/login/signup'/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-			     <li><a href="<c:url value='/login/login'/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			     <li><c:set var="principalName"
+            value="${pageContext.request.userPrincipal.name}" /> 
+            <i class="fa fa-user fa-fw"></i>
+            <i class="fa fa-caret-down"></i> 
+            <a href=${principalName == null ? '/myapp/login/login' : '/myapp/j_spring_security_logout' }>
+            ${principalName == null ? 'Login' : 'Logout' }</a></li>
 		      </ul>              
             </div>
           </div>
         </nav>
-
       </div>
     </div><!-- /.navbar-wrapper  -->
 

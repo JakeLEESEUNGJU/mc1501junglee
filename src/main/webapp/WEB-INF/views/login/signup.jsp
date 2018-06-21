@@ -225,8 +225,8 @@
 	  
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-default">sign up</button>
-	      <button type="submit" class="btn btn-default">cancel</button>
+	      <button type="submit" class="btn btn-default">Sign Up</button>
+	      <button type="submit" class="btn btn-default">Cancel</button>
 	    </div>
 	  </div>
 	</form>
