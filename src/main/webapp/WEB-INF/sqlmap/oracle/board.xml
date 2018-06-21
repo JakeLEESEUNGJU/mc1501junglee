@@ -52,17 +52,19 @@
 		, NAME  <!-- 명칭 -->
 		, TITLE <!-- 제목 -->
 		, CONTENT <!-- 내용 -->
-		, REGISTER_SEQ  <!-- 수정자_SEQ -->
 		, REGISTRY_DATE <!-- 수정일자 -->
+		, MODIFIER_SEQ  <!-- 수정자_SEQ -->
+		, MODIFY_DATE  <!-- 수정일자 -->
 		, ITEM <!-- 첨부 -->
 		)
 		values(
-		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
+		  #{MC_BOARD_SEQ} <!-- 게시글 시퀀스 -->
 		, #{NAME} <!-- 명칭 -->
 		, #{TITLE} <!-- 제목 -->
 		, #{CONTENT} <!-- 내용 -->
-		, #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, sysdate <!-- 수정일자 -->
+		, #{MEMBER_SEQ}
+		, sysdate
 		, #{ITEM} <!-- 첨부 -->
 		)
 	</insert>

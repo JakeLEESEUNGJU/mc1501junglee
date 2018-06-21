@@ -20,7 +20,7 @@ import com.mc1501home.myapp.service.LoginService;
  */
 @Controller
 public class LoginController {
-	private final static String MAPPING = "/board/";
+	private final static String MAPPING = "/login/";
 	
 	@Autowired
 	private LoginService service;
@@ -37,7 +37,7 @@ public class LoginController {
 		
 		
 		if ("signup".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
 		}  else if ("login".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} 

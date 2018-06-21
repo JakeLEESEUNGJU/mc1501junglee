@@ -28,7 +28,7 @@ public class LoginService {
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("BOARD_SEQ");
+		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
 		
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();

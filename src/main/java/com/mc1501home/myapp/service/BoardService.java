@@ -43,15 +43,14 @@ public class BoardService {
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
-		dataMap.put("MEMBER_SEQ", uniqueSequence);
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		dataMap.put("BOARD_SEQ", uniqueSequence);
 		
-		String sqlMapId = "member.merge";
+		
+		String sqlMapId = "board.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		sqlMapId = "member.read";
+		sqlMapId = "board.read";
 		
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
