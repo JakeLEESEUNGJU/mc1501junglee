@@ -45,7 +45,6 @@
 		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, MODIFY_DATE = sysdate <!-- 수정일자 -->
 		, ITEM = #{ITEM} <!-- 첨부 -->
-		, MEMBER_SEQ = #{MEMBER_SEQ}
 		WHEN NOT MATCHED THEN
 		INSERT (
 		MC_BOARD_SEQ <!-- 글번호 -->
