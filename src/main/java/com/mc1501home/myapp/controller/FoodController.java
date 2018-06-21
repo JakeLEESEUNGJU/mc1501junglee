@@ -56,9 +56,9 @@ public class FoodController {
 		if(forwardView != null){
 			viewName = forwardView;
 		}
-		
+		System.out.println(viewName);
 		modelandView.setViewName(viewName);
-
+		
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);

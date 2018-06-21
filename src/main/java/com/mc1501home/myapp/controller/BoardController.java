@@ -38,7 +38,7 @@ public class BoardController {
 
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
-
+		System.out.println("이거야이거!!!!!!!!!!!!!!!!!"+forwardView);
 		Map<String, Object> resultMap = new HashMap<String, Object>() ;
 		List<Object> resultList = new ArrayList<Object>();
 		
