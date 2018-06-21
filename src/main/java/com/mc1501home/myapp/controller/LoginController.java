@@ -25,7 +25,7 @@ public class LoginController {
 	
 	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
-		String viewName="login/";
+		String viewName="/login/";
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		if("login".equalsIgnoreCase(action)) {
 			viewName = viewName + action;

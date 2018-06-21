@@ -26,12 +26,12 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Free Board</div>
-				<table>
+				<table align="center" width="100%">
 					<tr>
 						<td>
 							<form role="form" method="POST"
-								action="<c:url value='/board/merge?MC_BOARD_SEQ=${resultMap}' />">
-								<table width="1200">
+								action="<c:url value='/board/merge?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">
+								<table >
 									<tr>
 										<td>&nbsp;</td>
 										<td align="center">Title</td>
@@ -60,7 +60,7 @@
 										<td align="center">Content</td>
 										<td><textarea name="memo" cols="50" rows="13"
 												style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; width: 1100; resize: none;"> ${resultMap.CONTENT }
-						 </textarea></td>
+						 				</textarea></td>
 										<td>&nbsp;</td>
 									</tr>
 									<tr height="1" bgcolor="#dddddd">
@@ -73,13 +73,14 @@
 										<td>&nbsp;</td>
 										<td colspan="2"><input type=submit value="Modify">
 											<input type=button value="Cancle"
-											onclick="window.location.href='<c:url value='/board/list?CATEGORY=BOARD' />'">
+											onclick="window.location.href='<c:url value='/board/read?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}' />'">
 										<td>&nbsp;</td>
 									</tr>
 								</table>
 							</form>
 				</table>
 			</div>
+
 		</div>
 	</div>
 </div>

@@ -30,7 +30,7 @@
 					<div class="panel-heading">Free Board</div>
 					<form role="form" method="POST"
 						action="<c:url value='/board/edit' />">
-						<table>
+						<table align="center" width="100%">
 							<tr>
 								<td>
 									<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -89,10 +89,8 @@
 										<tr align="right">
 											<td colspan="2" width="399"><input type=submit
 												value="write" OnClick="window.location='write.jsp'">
-												<input type=button value="reply"> <a
-												href="<c:url value='/board/list?CATEGORY=BOARD' />">Back
-													to List</a> <a
-												href="<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">edit</a>
+												<input type=button value="reply"> 
+												<input type=button value="modify" onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
 												<input type=button value="delete">
 										</tr>
 									</table>
@@ -102,5 +100,7 @@
 					</form>
 				</div>
 			</div>
+
 		</div>
+	</div>
 </body>
