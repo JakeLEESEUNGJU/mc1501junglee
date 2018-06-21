@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mc1501home.myapp.service.BoardService;
-import com.mc1501home.myapp.service.MemberService;
 
 /**
  * Handles requests for the application home page.

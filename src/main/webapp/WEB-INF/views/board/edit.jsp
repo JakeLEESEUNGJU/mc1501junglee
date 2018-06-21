@@ -25,7 +25,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<form role="form" method="POST"
-								action="<c:url value='/member/edit' />">
+								action="<c:url value='/member/merge?MC_BOARD_SEQ=${MC_BOARD_SEQ}' />">
 			<div class="panel panel-default">
 				<div class="panel-heading">Free Board</div>
 				<div class="panel-body">

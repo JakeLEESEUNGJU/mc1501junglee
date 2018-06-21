@@ -38,12 +38,12 @@ public class BoardService {
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("BOARD_SEQ");
+		String uniqueSequence = (String) dataMap.get("MC_BOARD_SEQ");
 		
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
-		dataMap.put("BOARD_SEQ", uniqueSequence);
+		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
 		
 		
 		String sqlMapId = "board.merge";
