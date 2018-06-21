@@ -48,10 +48,10 @@
     			//1.1 if (input email is satisfied regExp)
     			//var email = $("#inputEmail");
     			
-    				//1.1.1 입력한 이메일이 조건을 만족할 때
+    				//1.1.1 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±í  ë
     			if( email_check($("#inputEmail").val()) ){
     				inputSuccess("#email", "#emailCheckSymbol", "#emailCheckSymbolStatus");
-    				//1.1.2 입력한 이메일이 조건을 만족하지 못할 때	
+    				//1.1.2 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±íì§ ëª»í  ë	
     			}else{
     				inputError("#email", "#emailCheckSymbol", "#emailCheckSymbolStatus");
     			}
@@ -63,10 +63,10 @@
     		$("#inputPassword").blur(function(){
     			//1.1 if (input password is satisfied regExp)
     			
-    				//1.1.1 입력한 암호가 조건을 만족할 때
+    				//1.1.1 ìë ¥í ìí¸ê° ì¡°ê±´ì ë§ì¡±í  ë
     			if( password_check($("#inputPassword").val()) ){
     				inputSuccess("#password", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
-    				//1.1.2 입력한 이메일이 조건을 만족하지 못할 때	
+    				//1.1.2 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±íì§ ëª»í  ë	
     			}else{
     				inputError("#password", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
     			}
@@ -74,12 +74,12 @@
     		
        		//4. password check check(  )
     		$("#inputPasswordCheck").blur(function(){
-    			//2.1 password check에 값이 ""이 아니고,
+    			//2.1 password checkì ê°ì´ ""ì´ ìëê³ ,
     			if($("#inputPassword").val() != ""){
-    				//2.1.1 emailcheck의 값과 일치하면,
+    				//2.1.1 emailcheckì ê°ê³¼ ì¼ì¹íë©´,
     				if($("#inputPassword").val() == $("#inputPasswordCheck").val()){
     					inputSuccess("#passwordCheck","#passwordCheckCheckSymbol", "#passwordCheckCheckSymbolStatus");
-    				//2.1.2 emailcheck의 값과 일치하지 않으면,
+    				//2.1.2 emailcheckì ê°ê³¼ ì¼ì¹íì§ ìì¼ë©´,
     				}else{
     					inputError("#passwordCheck","#passwordCheckCheckSymbol", "#passwordCheckCheckSymbolStatus");
     				}
@@ -110,12 +110,14 @@
     <!-- sign up  -->
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">sign up</h2>
 	
-	<form class="form-horizontal" role="form" action="<c:url value='/login/login' />" method="POST">
+	<form class="form-horizontal" role="form" action="<c:url value='/login/create' />" method="POST">
+	<input type="hidden" name="forwardView" value="/login/login">
+	<input type="hidden" name="MEMBER_SEQ" value="">
 	<!-- 1. email -->
-	  <div class="form-group" id="email">
+	  <div class="form-group" id="EMAIL">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+	      <input class="form-control" type="EMAIL" name="EMAIL"	value="${resultMap.EMAIL }">
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
@@ -128,7 +130,7 @@
 	  <div class="form-group" id="password">
 	    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-9">
-	      <input type="password" name="password"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상">
+	      <input type="password" name="PASSWORD"  class="form-control" id="inputPassword" placeholder="영문대문자, 소문자, 숫자, 특수문자 1개 이상, 총 8자리 이상">
 	      <span id="passwordCheckSymbol"></span>
 	      <span id="passwordCheckSymbolStatus"></span>
 	      <p class="col-sm-1"></p>
@@ -150,7 +152,7 @@
 	  <div class="form-group">
 	    <label for="inputName" class="col-sm-2 control-label">Name</label>
 	    <div class="col-sm-9">
-	      <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+	      <input type="text" name="NAME" class="form-control" id="inputName" placeholder="Name" >
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -159,7 +161,7 @@
 	  <div class="form-group">
 	    <label for="inputBirthday" class="col-sm-2 control-label">Birthday</label>
 	    <div class="col-sm-9">
-	      <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="Birthday">
+	      <input type="date" name="BIRTHDAY" class="form-control" id="inputBirthday" placeholder="Birthday">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
@@ -168,15 +170,15 @@
 	  <div class="form-group">
 	    <label for="inputTelNum" class="col-sm-2 control-label">Tel</label>
 	    <div class="col-sm-9">
-	      <input type="tel" name="telNum" class="form-control" id="inputTelNum" placeholder="Telephone Num.">
+	      <input type="tel" name="TELEPHONE" class="form-control" id="inputTelNum" placeholder="Telephone Num.">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
 
 	  <!-- 8. address
-	  10 : 경기도
-	  20 : 전라도
-	  30 : 경상도
+	  10 : ê²½ê¸°ë
+	  20 : ì ë¼ë
+	  30 : ê²½ìë
 	   -->
 	 
 	  <div class="form-group">
@@ -184,13 +186,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAddr">
 			<label class="btn btn-secondary active">
-		    	<input type="radio" name="addr" value="10" autocomplete="off" checked> 경기도
+		    	<input type="radio" name="ADRESS" value="10" autocomplete="off" checked> 경기도
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="radio" name="addr" value="20" autocomplete="off"> 전라도
+		    	<input type="radio" name="ADRESS" value="20" autocomplete="off"> 강원도
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="radio" name="addr" value="30" autocomplete="off"> 경상도
+		    	<input type="radio" name="ADRESS" value="30" autocomplete="off"> 제주도
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>
@@ -198,9 +200,9 @@
 	  </div>
 	  
 	   <!-- 9. hobby
-	  100 : 수영
-	  200 : 음악감상
-	  300 : 공부
+	  100 : ìì
+	  200 : ììê°ì
+	  300 : ê³µë¶
 	   -->
 	 
 	  <div class="form-group">
@@ -208,13 +210,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputHobbies">
 			<label class="btn btn-secondary">
-		    	<input type="checkbox" name="hobbies" value="100" > 수영
+		    	<input type="checkbox" name="HOBBY" value="100" > 수영
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="checkBox" name="hobbies" value="200" > 음악감상
+		    	<input type="checkBox" name="HOBBY" value="200" > 음악감상
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="checkBox" name="hobbies" value="300" > 공부
+		    	<input type="checkBox" name="HOBBY" value="300" > 공부
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>

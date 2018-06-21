@@ -62,9 +62,9 @@
 				 EMAIL = #{EMAIL} 
 				, PASSWORD = #{PASSWORD} 
 				, NAME = #{NAME} 
-				, ADRESS = #{ADRESS} 
-				, INTEREST = #{INTEREST} 
-				, MODIFIER_SEQ = M0006 
+				, ADDRESS = #{ADDRESS} 
+				, HOBBY = #{HOBBY} 
+				, MODIFIER_SEQ = #{MODIFIER_SEQ} 
 				, MODIFY_DATE = sysdate 
 		 WHEN NOT MATCHED THEN
 		    INSERT (
@@ -72,7 +72,7 @@
 				, EMAIL <!-- EMAIL -->
 				, PASSWORD <!-- 암호 -->
 				, NAME <!-- 명칭 -->
-				, ADRESS <!-- 휴대폰번호 -->
+				, ADDRESS <!-- 휴대폰번호 -->
 				, INTEREST <!-- 조직 일련번호 -->
 				, REGISTER_SEQ <!-- 등록자SEQ -->
 				, REGISTRY_DATE <!-- 등록일자 -->
@@ -84,11 +84,11 @@
 				, #{EMAIL} <!-- EMAIL -->
 				, #{PASSWORD} <!-- 암호 -->
 				, #{NAME} <!-- 명칭 -->
-				, #{ADRESS} <!-- 회원 ID -->
-				, #{INTEREST} <!-- 휴대폰번호 -->
-				, M0006 <!-- 등록자SEQ -->
+				, #{ADDRESS} <!-- 회원 ID -->
+				, #{HOBBY} <!-- 휴대폰번호 -->
+				, #{REGISTER_SEQ} <!-- 등록자SEQ -->
 				, sysdate <!-- 등록일자 -->
-				, M0006 <!-- 수정자_SEQ -->
+				, #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
 				, sysdate <!-- 수정일자 -->
 			)
 	</insert>

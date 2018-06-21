@@ -37,11 +37,14 @@ public class LoginController {
 		
 		
 		if ("signup".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+			
 		}  else if ("login".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
-		} 
-		
+		} else if("create".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+			
+		}
+			
 		if(forwardView != null){
 			viewName = forwardView;
 		}

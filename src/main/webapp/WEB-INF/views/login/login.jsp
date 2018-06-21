@@ -20,7 +20,8 @@
     ================================================== -->
     <!-- login  -->
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">log in</h2>
-	<form class="form-horizontal">
+	<form class="form-horizontal" role="form" action="<c:url value='/login/login' />" method="POST">
+	<input type="hidden" name="forwardView" value="/">
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">

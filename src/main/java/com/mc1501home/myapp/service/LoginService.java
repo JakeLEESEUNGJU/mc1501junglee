@@ -30,7 +30,10 @@ public class LoginService {
 	public Object saveObject(Map<String, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("MEMBER_SEQ");
 		
-		if("".equals(uniqueSequence)){
+		Map<String, Object> protocol = dataMap;
+
+		
+		if("".equals((String) dataMap.get("MEMBER_SEQ"))){
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
 		dataMap.put("MEMBER_SEQ", uniqueSequence);
