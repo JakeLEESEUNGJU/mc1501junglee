@@ -49,7 +49,7 @@
 											<td colspan="4" width="407"></td>
 										</tr>
 										<tr>
-											<td align="left" width="319">No.${resultMap.MC_BOARD_SEQ }</td>
+											<td align="left" width="319">게시판 번호 : ${resultMap.MC_BOARD_SEQ }</td>
 											<td align="right" width="319">${resultMap.NAME }</td>
 
 										</tr>
