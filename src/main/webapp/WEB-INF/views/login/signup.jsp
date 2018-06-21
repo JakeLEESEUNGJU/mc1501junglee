@@ -112,7 +112,7 @@
 	
 	<form class="form-horizontal" role="form" action="<c:url value='/login/create' />" method="POST">
 	<input type="hidden" name="forwardView" value="/login/login">
-	<input type="hidden" name="MEMBER_SEQ" value="">
+	<input type="hidden" name="MEMBER_SEQ" value="${resultMap.MEMBER_SEQ}">
 	<!-- 1. email -->
 	  <div class="form-group" id="EMAIL">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
@@ -186,13 +186,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputAddr">
 			<label class="btn btn-secondary active">
-		    	<input type="radio" name="ADRESS" value="10" autocomplete="off" checked> 경기도
+		    	<input type="radio" name="ADDRESS" value="10" autocomplete="off" checked> 경기도
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="radio" name="ADRESS" value="20" autocomplete="off"> 강원도
+		    	<input type="radio" name="ADDRESS" value="20" autocomplete="off"> 강원도
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="radio" name="ADRESS" value="30" autocomplete="off"> 제주도
+		    	<input type="radio" name="ADDRESS" value="30" autocomplete="off"> 제주도
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>
@@ -210,13 +210,13 @@
 	    <div class="col-sm-9">
 		    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="inputHobbies">
 			<label class="btn btn-secondary">
-		    	<input type="checkbox" name="HOBBY" value="100" > 수영
+		    	<input type="checkbox" name="HOBBIES" value="100" > 수영
 		 	</label>
 		    <label class="btn btn-secondary">
-		    	<input type="checkBox" name="HOBBY" value="200" > 음악감상
+		    	<input type="checkBox" name="HOBBIES" value="200" > 음악감상
 		  	</label>
 		  	<label class="btn btn-secondary">
-		    	<input type="checkBox" name="HOBBY" value="300" > 공부
+		    	<input type="checkBox" name="HOBBIES" value="300" > 공부
 		  	</label>
 		</div>
 	      <p class="col-sm-1"></p>

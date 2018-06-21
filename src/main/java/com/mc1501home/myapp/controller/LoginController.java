@@ -39,7 +39,7 @@ public class LoginController {
 		if ("signup".equalsIgnoreCase(action)) {
 			
 		}  else if ("login".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+//			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if("create".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.saveObject(paramMap);
 			

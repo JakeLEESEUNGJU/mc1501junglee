@@ -20,19 +20,19 @@
     ================================================== -->
     <!-- login  -->
 	<h2 class="col-sm-12" style="text-align: center; margin-bottom:40px;">log in</h2>
-	<form class="form-horizontal" role="form" action="<c:url value='/login/login' />" method="POST">
+	<form class="form-horizontal" role="form" action="<c:url value='/j_spring_security_check' />" method="POST">
 	<input type="hidden" name="forwardView" value="/">
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+	      <input type="email" class="form-control" name="EMAIL" id="inputEmail3" placeholder="Email">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 	    <div class="col-sm-9">
-	      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+	      <input type="password" class="form-control" name="PASSWORD" id="inputPassword3" placeholder="Password">
 	      <p class="col-sm-1"></p>
 	    </div>
 	  </div>
