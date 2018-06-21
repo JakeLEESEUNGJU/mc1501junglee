@@ -75,8 +75,10 @@
 											<td width="0"></td>
 											<td align="right" width="50">view: ${resultMap.VIEWS }</td>
 										</tr>
-										<tr>
-											<td align="center" width="500" colspan="2" height="200">${resultMap.CONTENT }
+										</table>
+										<table  align="center">
+										<tr >
+											<td> <textarea readonly name="CONTENT" cols="120" rows="40" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
 										</tr>
 
 										<tr height="1" bgcolor="#dddddd">

@@ -46,6 +46,8 @@ public class BoardService {
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
 		
 		
+		
+		
 		String sqlMapId = "board.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
@@ -59,17 +61,17 @@ public class BoardService {
 
 	public Object deleteObject(Object dataMap) {
 		// delete child record authority
-		String sqlMapId = "authorityRmember.delete";
+		String sqlMapId = "board.delete";
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
-		// delete Mother record authority
+		/*// delete Mother record authority
 		sqlMapId = "member.delete";
 
 		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
-
-		// get Member List
-		sqlMapId = "member.list";
+		*/
+		//get Member List
+		sqlMapId = "board.list";
 		
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		

@@ -46,7 +46,7 @@
 							<img class="img-circle" src="<c:url value='${resultData.ITEM }'/>"
 								alt="${resultData.CONTENT }" width="140" height="140">
 								</a>
-							<h2>${resultData.TITLE}</h2>
+							<h3><a href="<c:url value='/foodstore/edit?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}'/>">${resultData.TITLE}</a></h3>
 							<!-- <p>board indicator </p> -->
 						</div>
 					</c:forEach>
