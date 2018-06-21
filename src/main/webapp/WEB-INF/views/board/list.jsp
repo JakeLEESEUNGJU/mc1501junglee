@@ -63,6 +63,10 @@
 				<!-- /.panel-body -->
 			</div>
 			<!-- /.panel -->
+			<div align="right">
+			<input type=button value="write" class="btn btn-default"
+							onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' "> 
+		</div>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
