@@ -40,32 +40,31 @@
 		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
 		WHEN MATCHED THEN
 		UPDATE SET
-		NAME = #{NAME} <!-- 명칭 -->
-		, TITLE = #{TITLE} <!-- 제목 -->
+		TITLE = #{TITLE} <!-- 제목 -->
 		, CONTENT = #{CONTENT} <!-- 내용 -->
 		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, MODIFY_DATE = sysdate <!-- 수정일자 -->
 		, ITEM = #{ITEM} <!-- 첨부 -->
 		WHEN NOT MATCHED THEN
 		INSERT (
-		MC_BOARD_SEQ <!-- 게시글 시퀀스 -->
-		, NAME  <!-- 명칭 -->
-		, TITLE <!-- 제목 -->
-		, CONTENT <!-- 내용 -->
-		, REGISTRY_DATE <!-- 수정일자 -->
-		, MODIFIER_SEQ  <!-- 수정자_SEQ -->
-		, MODIFY_DATE  <!-- 수정일자 -->
-		, ITEM <!-- 첨부 -->
+		MC_BOARD_SEQ <!-- 글번호 -->
+		, TITLE 	<!-- 제목 -->
+		, CONTENT 	<!-- 내용 -->
+		, REGISTRY_DATE	<!-- 등록날짜 -->
+		, ITEM 	<!-- ITEM -->
+        , CATEGORY	<!-- 카테고리 -->
+        , AUTHORITY_ID	<!-- 권한 ID -->
+        , MEMBER_SEQ	<!-- 멤버 시퀀스 -->
 		)
 		values(
 		  #{MC_BOARD_SEQ} <!-- 게시글 시퀀스 -->
-		, #{NAME} <!-- 명칭 -->
 		, #{TITLE} <!-- 제목 -->
 		, #{CONTENT} <!-- 내용 -->
-		, sysdate <!-- 수정일자 -->
-		, #{MEMBER_SEQ}
-		, sysdate
-		, #{ITEM} <!-- 첨부 -->
+		, sysdate <!-- 등록일자 -->
+		, #{ITEM}	<!-- ITEM -->
+        , #{CATEGORY}	<!-- 카테고리 -->
+        , #{AUTHORITY_ID}	<!-- 권한 ID -->
+        , #{MEMBER_SEQ}	<!-- 멤버 시퀀스 -->
 		)
 	</insert>
 

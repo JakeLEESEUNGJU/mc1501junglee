@@ -84,7 +84,7 @@
 						<div class="col-lg-12">
 							<form role="form" method="POST"
 								action="<c:url value='/member/merge' />">
-								<!-- <input type="hidden" name="forwardView" value="/member/read" /> -->
+								<!-- /<input type="hidden" name="forwardView" value="/member/read" /> -->
 								<input type="hidden" name="MEMBER_SEQ"
 									value="${resultMap.MEMBER_SEQ }" /> <input type="hidden"
 									name="ORGANIZATION_SEQ" value="UUID-11-CIPI9M" />
