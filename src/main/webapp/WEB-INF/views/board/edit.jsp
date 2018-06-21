@@ -73,7 +73,7 @@
 										<td>&nbsp;</td>
 										<td colspan="2"><input type=submit value="Modify">
 											<input type=button value="Cancle"
-											onclick="window.location.href='<c:url value='/board/read?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}' />'">
+											onclick="window.location.href='<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />'">
 										<td>&nbsp;</td>
 									</tr>
 								</table>
