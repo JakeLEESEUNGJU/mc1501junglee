@@ -28,7 +28,9 @@
 				action="<c:url value='/board/merge'/>">
 				
 				<input type="hidden" name="MC_BOARD_SEQ" value="${resultMap.MC_BOARD_SEQ }">
-				<input type="hidden" name="MEMBER_SEQ" value="M0006">
+				<c:set var="principalName"
+				value="${pageContext.request.userPrincipal.name}" /> 
+				<input type="hidden" name="MEMBER_SEQ" value="${principalName} ">
 				<input type="hidden" name="CATEGORY" value="BOARD">
 				<input type="hidden" name="AUTHORITY_ID" value="AUT001">
 				<input type="hidden" name="forwardView" value="/board/read" />
