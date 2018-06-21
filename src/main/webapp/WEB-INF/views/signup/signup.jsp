@@ -57,19 +57,7 @@
     			}
     		});
     		
-    		//2. email check check
-    		$("#inputEmailCheck").blur(function(){
-    			//2.1 emailcheck에 값이 ""이 아니고,
-    			if($("#inputEmail").val() != ""){
-    				//2.1.1 emailcheck의 값과 일치하면,
-    				if($("#inputEmail").val() == $("#inputEmailCheck").val()){
-    					inputSuccess("#emailCheck","#emailCheckCheckSymbol", "#emailCheckCheckSymbolStatus");
-    				//2.1.2 emailcheck의 값과 일치하지 않으면,
-    				}else{
-    					inputError("#emailCheck","#emailCheckCheckSymbol", "#emailCheckCheckSymbolStatus");
-    				}
-    			} 
-    		});
+    		
     		
        		//3. password check(  )
     		$("#inputPassword").blur(function(){
