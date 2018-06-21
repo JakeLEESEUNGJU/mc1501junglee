@@ -25,26 +25,20 @@ public class SignupController {
 	@Autowired
 	private SignupService service;
 
-	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST} )
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap,
-							@PathVariable String action, ModelAndView modelandView) {
-		String viewName = "signup";
+	@RequestMapping(value="/{action}", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView edit(@RequestParam Map<String, Object> paramMap, @PathVariable String action, ModelAndView modelandView) {
+		String viewName="/signup/";
 		Map<String, Object> resultMap = new HashMap<String, Object>();
-		
-		if("read".equalsIgnoreCase(action)) {
-			
-			System.out.println("Entering Read mode");
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
-			modelandView.addObject("resultMap", resultMap);
-			action = "/read";
-		} else{
-			System.out.println("Entering signup mode");
-			action = "/signup";
+		if("signup".equalsIgnoreCase(action)) {
+			viewName = viewName + action;
+			resultMap = paramMap;
+		}else {
+			viewName = viewName+"signup";
 		}
-			
-		viewName = viewName + action;
-		modelandView.setViewName(viewName);
 		
+		modelandView.setViewName(viewName);
+		modelandView.addObject("resultMap", resultMap);
 		return modelandView;
 	}
+	
 }
