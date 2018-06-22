@@ -105,11 +105,11 @@
 					</div>
 				</div>
 				<div align="right">
-					<button type="submit" class="btn btn-default" >submit</button>
+					<button type="submit" class="btn btn-default" >Submit</button>
 					<button class="btn btn-default"
-						formaction="<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">delete</button>
+						formaction="<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">Delete</button>
 					<button class="btn btn-default"
-						formaction="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">cancel</button>
+						formaction="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}'/>">Back</button>
 
 				</div>
 			</form>

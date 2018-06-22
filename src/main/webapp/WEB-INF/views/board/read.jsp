@@ -109,11 +109,12 @@
 				</div>
 			</div>
 			<div align="right">
-
-				<input type=button value="modify" class="btn btn-default"
+				
+				<input type=button value="Modify" class="btn btn-default"
 					onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
-				<input type=button value="delete" class="btn btn-default"
+				<input type=button value="Delete" class="btn btn-default"
 					onclick="location.href='<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
-				<div></div>
+				<input type=button value="Cancel" class="btn btn-default"
+					onclick="location.href='<c:url value='/board/list?CATEGORY=BOARD' />' ">
 			</div>
 </body>
