@@ -27,7 +27,12 @@ import com.mc1501home.myapp.service.FoodService;
 @Controller
 public class FoodController {
 	private final static String MAPPING = "/foodstore/";
-
+	/*
+	 * <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <script
+	 * type="text/javascript"> $(function() { $("#ForwareList").click(function() {
+	 * $("form").submit(function(e) { $(this).attr("action",
+	 * "<c:url value='/member/list'/>"); return; }); }); });
+	 */
 	@Autowired
 	private FoodService service;
 
@@ -37,7 +42,6 @@ public class FoodController {
 
 		String viewName = MAPPING + action;
 		String forwardView = (String) paramMap.get("forwardView");
-
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
@@ -48,23 +52,25 @@ public class FoodController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
 		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<String, Object>) service.readObject(paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
-		}else if ("merge".equalsIgnoreCase(action)) {
+		} else if ("merge".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.saveObject(paramMap);
 		}
 
 		if (forwardView != null) {
 			viewName = forwardView;
 		}
+
 		modelandView.setViewName(viewName);
 
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);
+
 		return modelandView;
 	}
 }

@@ -31,11 +31,10 @@
 					value="${resultMap.MC_BOARD_SEQ }">
 					<c:set var="principalName"
 				value="${pageContext.request.userPrincipal.name}" /> 
-					 <input type="hidden"
-					name="MEMBER_SEQ" value="${principalName}"> <input type="hidden"
-					name="CATEGORY" value="GETJOB"> <input type="hidden"
-					name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}"> <input type="hidden"
-					name="forwardView" value="/getjob/list" />
+					 <input type="hidden" name="MEMBER_SEQ" value="${principalName}"> 
+					<input type="hidden" name="CATEGORY" value="GETJOB">
+					 <input type="hidden" name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}"> 
+					<input type="hidden" name="forwardView" value="/getjob/list" />
 				<div class="panel panel-default">
 					<div class="panel-heading">GetJob Board</div>
 					<div class="panel-body">
@@ -114,7 +113,7 @@
 				<div align="center">
 					<button type="submit" class="btn btn-default">submit</button>
 					<button class="btn btn-default"
-						formaction="<c:url value='/getjob/list' />">cancel</button>
+						formaction="<c:url value='/getjob/list?CATEGORY=GETJOB' />">cancel</button>
 
 				</div>
 			</form>

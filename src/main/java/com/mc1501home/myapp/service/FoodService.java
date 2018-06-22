@@ -39,6 +39,17 @@ public class FoodService {
 		return resultObject;
 		
 	}
+	
+	public Object readObject(Object dataMap) {
+		String sqlMapId = "board.read";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+
+		sqlMapId = "foodstore.views";		
+		Object resultKey = dao.getUpdate(sqlMapId, dataMap);
+
+		return resultObject;
+
+	}
 	public Object getMemberObject(Object dataMap) {
 		String sqlMapId = "member.read";
 		
@@ -55,7 +66,7 @@ public class FoodService {
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
-		String sqlMapId = "member.searchAI";
+		String sqlMapId = "member.searchAI";;
 		Map<String, Object> item= (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
 		String authority= (String) item.get("AUTHORITY_ID");
 		dataMap.put("AUTHORITY_ID", authority );
@@ -66,6 +77,8 @@ public class FoodService {
 		sqlMapId = "foodstore.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		
+		String category= "FOODSTORE";
 		
 		sqlMapId = "foodstore.list";
 		
