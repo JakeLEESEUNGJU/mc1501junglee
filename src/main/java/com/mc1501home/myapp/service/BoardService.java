@@ -44,12 +44,13 @@ public class BoardService {
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
-		
-		
-		
-		
 		String sqlMapId = "member.searchAI";
-		dataMap.put("AUTHORITY_ID", dao.getObject(sqlMapId, dataMap));
+		Map<String, Object> item= (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
+		String authority ;
+		authority= (String) item.get("AUTHORITY_ID");
+		System.out.println(authority);
+		System.out.println(dao.getObject(sqlMapId, dataMap));
+		dataMap.put("AUTHORITY_ID", authority );
 		
 		
 		sqlMapId = "board.merge";
