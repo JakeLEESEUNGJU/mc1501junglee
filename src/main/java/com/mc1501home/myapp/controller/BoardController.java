@@ -27,16 +27,12 @@ import com.mc1501home.myapp.service.BoardService;
 @Controller
 public class BoardController {
 	private final static String MAPPING = "/board/";
-/*<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script type="text/javascript">
-	$(function() {
-		$("#ForwareList").click(function() {
-			$("form").submit(function(e) {
-				$(this).attr("action", "<c:url value='/member/list'/>");
-				return;
-			});
-		});
-	});*/
+	/*
+	 * <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <script
+	 * type="text/javascript"> $(function() { $("#ForwareList").click(function() {
+	 * $("form").submit(function(e) { $(this).attr("action",
+	 * "<c:url value='/member/list'/>"); return; }); }); });
+	 */
 	@Autowired
 	private BoardService service;
 
@@ -49,8 +45,11 @@ public class BoardController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
 
-		if ("edit".equalsIgnoreCase(action)) {
+		if ("write".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getMemberObject(paramMap);
+			viewName = MAPPING + "edit";
+		} else if ("edit".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);

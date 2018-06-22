@@ -31,8 +31,11 @@ public class BoardService {
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "board.read";
-
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		/*if(resultObject!=null) {
+			sqlMapId= "board.update";
+			Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		}*/
 		return resultObject;
 		
 	}

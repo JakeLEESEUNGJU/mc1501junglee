@@ -67,7 +67,7 @@
         , #{MEMBER_SEQ}	<!-- 멤버 시퀀스 -->
 		)
 	</insert>
-
+	<update id="update" parameterType="Map"></update>
 	<delete id="delete" parameterType="Map">
 		delete from MC_BOARD
 		where MC_BOARD_SEQ = #{MC_BOARD_SEQ}

@@ -67,7 +67,7 @@
 			<c:set var="principalName"
 				value="${pageContext.request.userPrincipal.name}" /> 
 			<input type=button value="write" class="btn btn-default"
-							onclick="location.href='<c:url value='/board/edit?MEMBER_SEQ=${principalName}' />' "> 
+							onclick="location.href='<c:url value='/board/write?MEMBER_SEQ=${principalName}' />' "> 
 		</div>
 		</div>
 		<!-- /.col-lg-12 -->
