@@ -52,7 +52,7 @@ public class BoardController {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
 		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<String, Object>) service.readObject(paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {

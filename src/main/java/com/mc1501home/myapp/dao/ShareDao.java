@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ShareDao{
+public class ShareDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-		
+
 	public Object getList(String sqlMapId, Object dataMap) {
 		Object result = sqlSession.selectList(sqlMapId, dataMap);
 
@@ -21,19 +21,24 @@ public class ShareDao{
 
 	public Object getObject(String sqlMapId, Object dataMap) {
 		Object result = sqlSession.selectOne(sqlMapId, dataMap);
-		
+
 		return result;
 	}
 
 	public Object saveObject(String sqlMapId, Object dataMap) {
-		Integer result = sqlSession.insert((String)sqlMapId, dataMap);
-		
+		Integer result = sqlSession.insert((String) sqlMapId, dataMap);
+
 		return result;
 	}
 
 	public Object deleteObject(String sqlMapId, Object dataMap) {
-		
-		Integer result = sqlSession.delete(sqlMapId,dataMap);
+
+		Integer result = sqlSession.delete(sqlMapId, dataMap);
+		return result;
+	}
+
+	public Object getUpdate(String sqlMapId, Object dataMap) {
+		Integer result = sqlSession.update(sqlMapId, dataMap);
 		return result;
 	}
 
