@@ -47,8 +47,7 @@
 
 	<insert id="merge" parameterType="Map">
 		MERGE INTO MC_BOARD MC1
-		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ
-		FROM DUAL) MC2
+		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ FROM DUAL) MC2
 		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
 		WHEN MATCHED THEN
 		UPDATE SET
@@ -57,7 +56,6 @@
 		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
 		, MODIFY_DATE = sysdate <!-- 수정일자 -->
 		, ITEM = #{ITEM} <!-- 첨부 -->
-		, VIEWS = {#VIEWS}
 		WHEN NOT MATCHED THEN
 		INSERT (
 		MC_BOARD_SEQ <!-- 글번호 -->
