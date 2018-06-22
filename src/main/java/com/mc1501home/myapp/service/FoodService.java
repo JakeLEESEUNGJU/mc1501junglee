@@ -1,6 +1,6 @@
 package com.mc1501home.myapp.service;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +40,8 @@ public class FoodService {
 		
 	}
 	
-	public Object readObject(Object dataMap) {
-		String sqlMapId = "board.read";
+/*	public Object readObject(Object dataMap) {
+		String sqlMapId = "foodstore.read";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
 		sqlMapId = "foodstore.views";		
@@ -49,7 +49,8 @@ public class FoodService {
 
 		return resultObject;
 
-	}
+	}*/
+	
 	public Object getMemberObject(Object dataMap) {
 		String sqlMapId = "member.read";
 		
@@ -82,7 +83,7 @@ public class FoodService {
 		
 		sqlMapId = "foodstore.list";
 		
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultObject = dao.getList(sqlMapId, dataMap);
 
 		return resultObject;
 	}

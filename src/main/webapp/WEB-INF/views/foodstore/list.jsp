@@ -55,6 +55,8 @@
 				</div>
 				<!-- /.panel -->
 				<div align="right">
+				<c:set var="principalName"
+				value="${pageContext.request.userPrincipal.name}" /> 
 			<input type=button value="write" class="btn btn-default"
 							onclick="location.href='<c:url value='/foodstore/write?MEMBER_SEQ=${principalName}' />' "> 
 		</div>

@@ -50,16 +50,16 @@ public class FoodController {
 			viewName = MAPPING + "edit";
 		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
+		}  else if ("list".equalsIgnoreCase(action)) {
 			paramMap.put("action", action);
-		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.readObject(paramMap);
-		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject(paramMap);
-		}
+			resultList = (List<Object>) service.saveObject(paramMap);
+		} /*else if ("read".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.readObject(paramMap);
+		}*/
 
 		if (forwardView != null) {
 			viewName = forwardView;

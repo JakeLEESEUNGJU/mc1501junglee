@@ -39,6 +39,18 @@ public class GetJobService {
 		return resultObject;
 		
 	}
+	
+	/*public Object readObject(Object dataMap) {
+		String sqlMapId = "board.read";
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+
+		sqlMapId = "getjob.views";		
+		Object resultKey = dao.getUpdate(sqlMapId, dataMap);
+
+		return resultObject;
+
+	}*/
+	
 	public Object getMemberObject(Object dataMap) {
 		String sqlMapId = "member.read";
 		
@@ -69,7 +81,7 @@ public class GetJobService {
 		
 		sqlMapId = "getjob.list";
 		
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		Object resultObject = dao.getList(sqlMapId, dataMap);
 
 		return resultObject;
 	}
