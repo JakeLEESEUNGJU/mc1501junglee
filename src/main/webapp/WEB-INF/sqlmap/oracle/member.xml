@@ -3,32 +3,32 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="member">
 
 	<select id="searchAI" resultType="Map" parameterType="Map">
 		select
-			AUTHORITY_ID
-			FROM MC_AUTHORITY_MEMBER
-			WHERE MEMBER_SEQ=#{MEMBER_SEQ}
-	
-	
+		AUTHORITY_ID
+		FROM MC_AUTHORITY_MEMBER
+		WHERE MEMBER_SEQ=#{MEMBER_SEQ}
+
+
 	</select>
-	
-	
+
+
 	<select id="list" resultType="Map" parameterType="Map">
-	    select 
-			MEMBER_SEQ <!-- 회원_SEQ -->
-			, MEMBER_ID <!-- 회원 ID -->
-			, PASSWORD <!-- 암호 -->
-			, NAME <!-- 명칭 -->
-			, EMAIL <!-- EMAIL -->
-			, CELLPHONE <!-- 휴대폰번호 -->
-			, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
-			, REGISTER_SEQ <!-- 등록자SEQ -->
-			, REGISTRY_DATE <!-- 등록일자 -->
-			, MODIFIER_SEQ <!-- 수정자_SEQ -->
-			, MODIFY_DATE <!-- 수정일자 -->
+		select
+		MEMBER_SEQ <!-- 회원_SEQ -->
+		, MEMBER_ID <!-- 회원 ID -->
+		, PASSWORD <!-- 암호 -->
+		, NAME <!-- 명칭 -->
+		, EMAIL <!-- EMAIL -->
+		, CELLPHONE <!-- 휴대폰번호 -->
+		, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
+		, REGISTER_SEQ <!-- 등록자SEQ -->
+		, REGISTRY_DATE <!-- 등록일자 -->
+		, MODIFIER_SEQ <!-- 수정자_SEQ -->
+		, MODIFY_DATE <!-- 수정일자 -->
 		from CIP_MEMBER
 		<![CDATA[
 		where 1 = 1
@@ -37,70 +37,89 @@
 	</select>
 
 	<select id="read" resultType="Map" parameterType="Map">
-		select 
-			MEMBER_SEQ <!-- 회원_SEQ -->
-			, MEMBER_ID <!-- 회원 ID -->
-			, PASSWORD <!-- 암호 -->
-			, NAME <!-- 명칭 -->
-			, EMAIL <!-- EMAIL -->
-			, CELLPHONE <!-- 휴대폰번호 -->
-			, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
-			, REGISTER_SEQ <!-- 등록자SEQ -->
-			, REGISTRY_DATE <!-- 등록일자 -->
-			, MODIFIER_SEQ <!-- 수정자_SEQ -->
-			, MODIFY_DATE <!-- 수정일자 -->
+		select
+		MEMBER_SEQ <!-- 회원_SEQ -->
+		, MEMBER_ID <!-- 회원 ID -->
+		, PASSWORD <!-- 암호 -->
+		, NAME <!-- 명칭 -->
+		, EMAIL <!-- EMAIL -->
+		, CELLPHONE <!-- 휴대폰번호 -->
+		, ORGANIZATION_SEQ <!-- 조직 일련번호 -->
+		, REGISTER_SEQ <!-- 등록자SEQ -->
+		, REGISTRY_DATE <!-- 등록일자 -->
+		, MODIFIER_SEQ <!-- 수정자_SEQ -->
+		, MODIFY_DATE <!-- 수정일자 -->
 		from CIP_MEMBER
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</select>
+	<insert id="authority_member" parameterType="Map">
+		INSERT INTO MC_AUTHORITY_MEMBER (
+		AUTHORITY_ID,
+		MEMBER_SEQ,
+		REGISTER_SEQ,
+		REGISTRY_DATE,
+		MODIFIER_SEQ,
+		MODIFY_DATE
+		) VALUES (
+		#{AUTHORITY_ID},
+		#{MEMBER_SEQ},
+		#{REGISTER_SEQ},
+		sysdate,
+		#{MODIFIER_SEQ},
+		sysdate 
+		)
 
+	</insert>
 	<insert id="merge" parameterType="Map">
-	    <!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER">
-			SELECT MEMBER_SEQ
-			FROM CIP_MEMBER
-			WHERE MEMBER_SEQ = #{MEMBER_SEQ}
-		</selectKey-->
-	
+		<!--selectKey resultType="String" keyProperty="MEMBER_SEQ" order="AFTER"> 
+			SELECT MEMBER_SEQ FROM CIP_MEMBER WHERE MEMBER_SEQ = #{MEMBER_SEQ} </selectKey -->
+
 		MERGE INTO MC_MEMBER MM1
-		     USING (SELECT #{MEMBER_SEQ} AS MEMBER_SEQ FROM DUAL) MM2
-		        ON (MM1.MEMBER_SEQ = MM2.MEMBER_SEQ)
-		 WHEN MATCHED THEN
-		    UPDATE SET
-				 EMAIL = #{EMAIL} 
-				, PASSWORD = #{PASSWORD} 
-				, NAME = #{NAME} 
-				, ADDRESS = #{ADDRESS} 
-				, HOBBIES = #{HOBBIES} 
-				, MODIFIER_SEQ = #{MODIFIER_SEQ} 
-				, MODIFY_DATE = sysdate 
-		 WHEN NOT MATCHED THEN
-		    INSERT (
-				MEMBER_SEQ <!-- 회원_SEQ -->
-				, EMAIL <!-- EMAIL -->
-				, PASSWORD <!-- 암호 -->
-				, NAME <!-- 명칭 -->
-				, ADDRESS <!-- 휴대폰번호 -->
-				, HOBBIES <!-- 조직 일련번호 -->
-				, REGISTER_SEQ <!-- 등록자SEQ -->
-				, REGISTRY_DATE <!-- 등록일자 -->
-				, MODIFIER_SEQ <!-- 수정자_SEQ -->
-				, MODIFY_DATE <!-- 수정일자 -->
-			)
-			values(
-				#{MEMBER_SEQ} <!-- 회원_SEQ -->
-				, #{EMAIL} <!-- EMAIL -->
-				, #{PASSWORD} <!-- 암호 -->
-				, #{NAME} <!-- 명칭 -->
-				, #{ADDRESS} <!-- 회원 ID -->
-				, #{HOBBIES} <!-- 휴대폰번호 -->
-				, #{REGISTER_SEQ} <!-- 등록자SEQ -->
-				, sysdate <!-- 등록일자 -->
-				, #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
-				, sysdate <!-- 수정일자 -->
-			)
+		USING (SELECT #{MEMBER_SEQ} AS MEMBER_SEQ FROM
+		DUAL) MM2
+		ON (MM1.MEMBER_SEQ = MM2.MEMBER_SEQ)
+		WHEN MATCHED THEN
+		UPDATE
+		SET
+		EMAIL = #{EMAIL}
+		, PASSWORD = #{PASSWORD}
+		, NAME = #{NAME}
+		, ADDRESS =
+		#{ADDRESS}
+		, HOBBIES = #{HOBBIES}
+		, MODIFIER_SEQ = #{MODIFIER_SEQ}
+		,
+		MODIFY_DATE = sysdate
+		WHEN NOT MATCHED THEN
+		INSERT (
+		MEMBER_SEQ <!-- 회원_SEQ -->
+		, EMAIL <!-- EMAIL -->
+		, PASSWORD <!-- 암호 -->
+		, NAME <!-- 명칭 -->
+		, ADDRESS <!-- 휴대폰번호 -->
+		, HOBBIES <!-- 조직 일련번호 -->
+		, REGISTER_SEQ <!-- 등록자SEQ -->
+		, REGISTRY_DATE <!-- 등록일자 -->
+		, MODIFIER_SEQ <!-- 수정자_SEQ -->
+		, MODIFY_DATE <!-- 수정일자 -->
+		)
+		values(
+		#{MEMBER_SEQ} <!-- 회원_SEQ -->
+		, #{EMAIL} <!-- EMAIL -->
+		, #{PASSWORD} <!-- 암호 -->
+		, #{NAME} <!-- 명칭 -->
+		, #{ADDRESS} <!-- 회원 ID -->
+		, #{HOBBIES} <!-- 휴대폰번호 -->
+		, #{REGISTER_SEQ} <!-- 등록자SEQ -->
+		, sysdate <!-- 등록일자 -->
+		, #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
+		, sysdate <!-- 수정일자 -->
+		)
 	</insert>
 
 	<delete id="delete" parameterType="Map">
 		delete from CIP_MEMBER
-		where MEMBER_SEQ = #{MEMBER_SEQ}
+		where
+		MEMBER_SEQ = #{MEMBER_SEQ}
 	</delete>
 </mapper>

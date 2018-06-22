@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mc1501home.myapp.dao.ShareDao;
 import com.mc1501home.myapp.util.CommonUtil;
@@ -50,13 +51,20 @@ public class MemberService {
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
+		
+		dataMap.put("AUTHORITY_ID", "AUT003");
 		dataMap.put("MEMBER_SEQ", uniqueSequence);
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
+		dataMap.put("REGISTER_SEQ", "M0006");
+		dataMap.put("MODIFIER_SEQ", "M0006");
 		
 		String sqlMapId = "member.merge";
-
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		System.out.println("회원 생성 했나요? "+resultKey);
+		
+		
+		sqlMapId ="member.authority_member";
+		resultKey = dao.saveObject(sqlMapId, dataMap);
+		System.out.println("회원권한  생성 했나요? "+resultKey);
 		
 		sqlMapId = "member.read";
 		
