@@ -27,37 +27,41 @@ import com.mc1501home.myapp.service.FoodService;
 @Controller
 public class FoodController {
 	private final static String MAPPING = "/foodstore/";
-	
+
 	@Autowired
 	private FoodService service;
-	
-	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
+
+	@RequestMapping(value = MAPPING + "{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
-		String viewName = MAPPING + action ;
-		String forwardView = (String) paramMap.get("forwardView") ;
+		String viewName = MAPPING + action;
+		String forwardView = (String) paramMap.get("forwardView");
 
-		Map<String, Object> resultMap = new HashMap<String, Object>() ;
+		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Object> resultList = new ArrayList<Object>();
-		
-		
-		if ("edit".equalsIgnoreCase(action)) {
+
+		if ("write".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getMemberObject(paramMap);
+			viewName = MAPPING + "edit";
+		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
-		}  else if ("read".equalsIgnoreCase(action)) {
+		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
-		} 
-		
-		if(forwardView != null){
+		}else if ("merge".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+		}
+
+		if (forwardView != null) {
 			viewName = forwardView;
 		}
 		modelandView.setViewName(viewName);
-		
+
 		modelandView.addObject("paramMap", paramMap);
 		modelandView.addObject("resultMap", resultMap);
 		modelandView.addObject("resultList", resultList);

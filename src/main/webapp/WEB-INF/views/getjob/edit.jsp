@@ -28,7 +28,10 @@
 				action="<c:url value='/getjob/merge'/>">
 
 				<input type="hidden" name="MC_BOARD_SEQ"
-					value="${resultMap.MC_BOARD_SEQ }"> <input type="hidden"
+					value="${resultMap.MC_BOARD_SEQ }">
+					<c:set var="principalName"
+				value="${pageContext.request.userPrincipal.name}" /> 
+					 <input type="hidden"
 					name="MEMBER_SEQ" value="${principalName}"> <input type="hidden"
 					name="CATEGORY" value="GETJOB"> <input type="hidden"
 					name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}"> <input type="hidden"
@@ -42,8 +45,8 @@
 							<div class="form-group">
 								<label for="inputStartDate" class="col-sm-2 control-label">StartDate</label>
 								<div class="col-sm-9">
-									<input type="date" name="START_DATE" class="form-control" id=""
-										StartDate"" placeholder="StartDate">
+									<input type="date" name="START_DATE" class="form-control" 
+									id="StartDate" placeholder="StartDate">
 									<p class="col-sm-1"></p>
 								</div>
 							</div>
@@ -111,7 +114,7 @@
 				<div align="center">
 					<button type="submit" class="btn btn-default">submit</button>
 					<button class="btn btn-default"
-						action="<c:url value='/getjob/list?CATEGORY=GETJOB' />">cancel</button>
+						formaction="<c:url value='/getjob/list' />">cancel</button>
 
 				</div>
 			</form>

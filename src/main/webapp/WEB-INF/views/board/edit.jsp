@@ -42,8 +42,8 @@
 							<div class="form-group">
 								<label for="inputStartDate" class="col-sm-2 control-label">StartDate</label>
 								<div class="col-sm-9">
-									<input type="date" name="START_DATE" class="form-control" id=""
-										StartDate"" placeholder="StartDate">
+									<input type="date" name="START_DATE" class="form-control" 
+									id="StartDate" placeholder="StartDate">
 									<p class="col-sm-1"></p>
 								</div>
 							</div>
@@ -107,7 +107,7 @@
 				<div align="center">
 					<button type="submit" class="btn btn-default" >submit</button>
 					<button class="btn btn-default"
-						action="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">cancel</button>
+						formaction="<c:url value='/board/read?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">cancel</button>
 
 				</div>
 			</form>

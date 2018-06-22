@@ -56,7 +56,7 @@
 				<!-- /.panel -->
 				<div align="right">
 			<input type=button value="write" class="btn btn-default"
-							onclick="location.href='<c:url value='/foodstore/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' "> 
+							onclick="location.href='<c:url value='/foodstore/write?MEMBER_SEQ=${principalName}' />' "> 
 		</div>
 			</div>
 			<!-- food calendar -->

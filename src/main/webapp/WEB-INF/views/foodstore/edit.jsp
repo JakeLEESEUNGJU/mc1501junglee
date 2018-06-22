@@ -28,6 +28,8 @@
 				action="<c:url value='/foodstore/merge'/>">
 				
 				<input type="hidden" name="MC_BOARD_SEQ" value="${resultMap.MC_BOARD_SEQ }">
+				<c:set var="principalName"
+				value="${pageContext.request.userPrincipal.name}" /> 
 				<input type="hidden" name="MEMBER_SEQ" value="${principalName}">
 				<input type="hidden" name="CATEGORY" value="FOODSTORE">
 				<input type="hidden" name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}">
@@ -87,10 +89,10 @@
 				<div align="center">
 					<button type="submit" class="btn btn-default" >submit</button>
 					<button class="btn btn-default"
-						action="<c:url value='/foodstore/list?CATEGORY=FOODSTORE' />">cancel</button>
+						formaction="<c:url value='/foodstore/list?CATEGORY=FOODSTORE' />">cancel</button>
+			</form>
 
 				</div>
-			</form>
 		</div>
 	</div>
 </div>

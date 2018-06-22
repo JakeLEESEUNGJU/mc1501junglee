@@ -25,40 +25,49 @@ public class GetJobService {
 
 		Object resultObject = dao.getList(sqlMapId, dataMap);
 		
-		
-		
 		return resultObject;
 	}
 
 
 	public Object getObject(Object dataMap) {
 		String sqlMapId = "getjob.read";
-
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
-		
+		/*if(resultObject!=null) {
+			sqlMapId= "board.update";
+			Object resultKey = dao.saveObject(sqlMapId, dataMap);
+		}*/
 		return resultObject;
+		
 	}
+	public Object getMemberObject(Object dataMap) {
+		String sqlMapId = "member.read";
+		
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
 
 	public Object saveObject(Map<String, Object> dataMap) {
-		String uniqueSequence = (String) dataMap.get("BOARD_SEQ");
+		String uniqueSequence = (String) dataMap.get("MC_BOARD_SEQ");
 		
 		if("".equals(uniqueSequence)){
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
-		dataMap.put("MEMBER_SEQ", uniqueSequence);
-		
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
 		String sqlMapId = "member.searchAI";
 		Map<String, Object> item= (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
-		String authority ;
-		authority= (String) item.get("AUTHORITY_ID");
+		String authority= (String) item.get("AUTHORITY_ID");
 		dataMap.put("AUTHORITY_ID", authority );
+		authority= (String) item.get("NAME");
+		dataMap.put("NAME", authority );
 		
-		sqlMapId = "member.merge";
+		
+		sqlMapId = "getjob.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
-		sqlMapId = "getjob.read";
+		sqlMapId = "getjob.list";
 		
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
@@ -67,16 +76,16 @@ public class GetJobService {
 
 	public Object deleteObject(Object dataMap) {
 		// delete child record authority
-		String sqlMapId = "authorityRmember.delete";
+		String sqlMapId = "getjob.delete";
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
-		// delete Mother record authority
-		sqlMapId = "getjob.delete";
+		/*// delete Mother record authority
+		sqlMapId = "member.delete";
 
 		resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
-
-		// get Member List
+		*/
+		//get Member List
 		sqlMapId = "getjob.list";
 		
 		Object resultObject = dao.getList(sqlMapId, dataMap);

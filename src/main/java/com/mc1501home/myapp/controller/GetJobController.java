@@ -42,7 +42,10 @@ public class GetJobController {
 		List<Object> resultList = new ArrayList<Object>();
 		
 		
-		if ("edit".equalsIgnoreCase(action)) {
+		if ("write".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.getMemberObject(paramMap);
+			viewName = MAPPING + "edit";
+		} else if ("edit".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);
 			paramMap.put("action", action);
 		}  else if ("read".equalsIgnoreCase(action)) {
@@ -51,7 +54,9 @@ public class GetJobController {
 			resultList = (List<Object>) service.getList(paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
-		} 
+		} else if ("merge".equalsIgnoreCase(action)) {
+			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+		}
 		
 		if(forwardView != null){
 			viewName = forwardView;
