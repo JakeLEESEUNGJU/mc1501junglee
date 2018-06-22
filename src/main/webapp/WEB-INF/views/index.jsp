@@ -36,7 +36,7 @@
         <div class="col-lg-4">
         <!-- board indicator -->
           <!-- <img class="img-circle" src="<c:url value='/resources/images/milk.png'/>" alt="milk" width="140" height="140">-->
-          <img class="img-circle" src="<c:url value='/resources/images/sul-go_greenlight.png'/>" alt="sssoju" width="140" height="140">
+          <img class="img-circle" src="<c:url value='/resources/images/ppakppak.png'/>" alt="board" width="140" height="140">
           <h2>자유 게시판</h2>
           <!-- <p>board indicator </p> -->
           <p><a class="btn btn-default" href="<c:url value='/board/list?CATEGORY=BOARD'/>" role="button">View details »</a></p>
@@ -44,14 +44,14 @@
         <div class="col-lg-4">
           <!-- <img class="img-circle" src="<c:url value='/resources/images/hot.gif'/>" alt="hot" width="140" height="140">
           <h2>ëìì..</h2> --> 
-          <img class="img-circle" src="<c:url value='/resources/images/happy.gif'/>" alt="happy" width="140" height="140">
+          <img class="img-circle" src="<c:url value='/resources/images/foodtruck.jpg'/>" alt="food" width="140" height="140">
           <h2>Food Store</h2>
           <!-- <img class="img-circle" src="<c:url value='/resources/images/cold.png'/>" alt="cold" width="140" height="140">
           <h2>ì¸ìì..</h2> -->
           <p><a class="btn btn-default" href="<c:url value='/foodstore/list?CATEGORY=FOODSTORE'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value='/resources/images/meeseng.jpeg'/>" alt="Generic placeholder image" width="140" height="140">
           <h2>Get Job</h2>
           <p><a class="btn btn-default" href="<c:url value='/getjob/list?CATEGORY=GETJOB'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
