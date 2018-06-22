@@ -12,7 +12,7 @@ public class ShareDao{
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
+		
 	public Object getList(String sqlMapId, Object dataMap) {
 		Object result = sqlSession.selectList(sqlMapId, dataMap);
 
