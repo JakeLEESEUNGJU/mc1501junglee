@@ -90,9 +90,9 @@
 					<button type="submit" class="btn btn-default" >submit</button>
 					<button class="btn btn-default"
 						formaction="<c:url value='/foodstore/list?CATEGORY=FOODSTORE' />">cancel</button>
-			</form>
 
 				</div>
+			</form>
 		</div>
 	</div>
 </div>
