@@ -61,6 +61,7 @@ public class BoardController {
 			resultMap = (Map<String, Object>) service.saveObject(paramMap);
 		}
 
+
 		if (forwardView != null) {
 			viewName = forwardView;
 		}
