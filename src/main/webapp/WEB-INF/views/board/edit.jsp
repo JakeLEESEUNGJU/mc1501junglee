@@ -32,7 +32,7 @@
 				value="${pageContext.request.userPrincipal.name}" /> 
 				<input type="hidden" name="MEMBER_SEQ" value="${principalName} ">
 				<input type="hidden" name="CATEGORY" value="BOARD">
-				<input type="hidden" name="AUTHORITY_ID" value="AUT001">
+				<input type="hidden" name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}">
 				<input type="hidden" name="forwardView" value="/board/read" />
 				<div class="panel panel-default">
 					<div class="panel-heading">Free Board</div>

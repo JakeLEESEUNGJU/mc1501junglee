@@ -5,6 +5,17 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
 <mapper namespace="member">
+
+	<select id="searchAI" resultType="Map" parameterType="Map">
+		select
+			AUTHORITY_ID
+			FROM MC_AUTHORITY_MEMBER
+			WHERE MEMBER_SEQ=#{MEMBER_SEQ}
+	
+	
+	</select>
+	
+	
 	<select id="list" resultType="Map" parameterType="Map">
 	    select 
 			MEMBER_SEQ <!-- 회원_SEQ -->

@@ -48,7 +48,11 @@ public class BoardService {
 		
 		
 		
-		String sqlMapId = "board.merge";
+		String sqlMapId = "member.searchAI";
+		dataMap.put("AUTHORITY_ID", dao.getObject(sqlMapId, dataMap));
+		
+		
+		sqlMapId = "board.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		
