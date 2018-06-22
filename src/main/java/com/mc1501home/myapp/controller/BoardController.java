@@ -50,7 +50,7 @@ public class BoardController {
 		List<Object> resultList = new ArrayList<Object>();
 
 		if ("edit".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map<String, Object>) service.getMemberObject(paramMap);
 			paramMap.put("action", action);
 		} else if ("read".equalsIgnoreCase(action)) {
 			resultMap = (Map<String, Object>) service.getObject(paramMap);

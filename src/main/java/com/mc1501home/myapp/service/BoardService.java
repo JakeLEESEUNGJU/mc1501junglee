@@ -36,6 +36,14 @@ public class BoardService {
 		return resultObject;
 		
 	}
+	public Object getMemberObject(Object dataMap) {
+		String sqlMapId = "member.read";
+		
+		Object resultObject = dao.getObject(sqlMapId, dataMap);
+		return resultObject;
+		
+	}
+	
 
 	public Object saveObject(Map<String, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("MC_BOARD_SEQ");

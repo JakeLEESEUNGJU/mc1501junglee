@@ -64,8 +64,10 @@
 			</div>
 			<!-- /.panel -->
 			<div align="right">
+			<c:set var="principalName"
+				value="${pageContext.request.userPrincipal.name}" /> 
 			<input type=button value="write" class="btn btn-default"
-							onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' "> 
+							onclick="location.href='<c:url value='/board/edit?MEMBER_SEQ=${principalName}' />' "> 
 		</div>
 		</div>
 		<!-- /.col-lg-12 -->
