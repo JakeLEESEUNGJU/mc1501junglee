@@ -51,7 +51,7 @@
           <p><a class="btn btn-default" href="<c:url value='/foodstore/list?CATEGORY=FOODSTORE'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="<c:url value='/resources/images/meeseng.jpeg'/>" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="<c:url value='/resources/images/meeseng.jpg'/>" alt="Generic placeholder image" width="140" height="140">
           <h2>Get Job</h2>
           <p><a class="btn btn-default" href="<c:url value='/getjob/list?CATEGORY=GETJOB'/>" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->

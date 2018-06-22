@@ -43,7 +43,7 @@
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 						<div class="col-lg-6">
 							<a href="${resultData.CONTENT }">
-							<img class="img-circle" src="<c:url value='${resultData.ITEM }'/>"
+							<img class="img-circle" src="<c:url value='/resources/images/${resultData.ITEM }'/>"
 								alt="${resultData.CONTENT }" width="140" height="140">
 								</a>
 							<h3><a href="<c:url value='/foodstore/edit?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}'/>">${resultData.TITLE}</a></h3>
