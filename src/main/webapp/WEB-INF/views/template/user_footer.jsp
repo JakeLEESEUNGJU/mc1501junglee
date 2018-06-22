@@ -8,7 +8,8 @@
     <!-- FOOTER -->
     <div class="container marketing">
       <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
+     
+        <p class="pull-right"><a href="<c:url value='/board/list?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />">Back to list</a></p>
         <p>in 2018 By clap.</p>
       </footer>
 	</div><!-- /.container -->

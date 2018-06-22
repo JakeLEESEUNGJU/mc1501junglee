@@ -49,7 +49,8 @@
 											<td colspan="4" width="407"></td>
 										</tr>
 										<tr>
-											<td align="left" width="319">게시판 번호 : ${resultMap.MC_BOARD_SEQ }</td>
+											<td align="left" width="319">게시판 번호 :
+												${resultMap.MC_BOARD_SEQ }</td>
 											<td align="right" width="319">${resultMap.NAME }</td>
 
 										</tr>
@@ -69,16 +70,27 @@
 										</tr>
 										<tr>
 											<td width="0"></td>
+
 											<td align="right" width="319">${resultMap.REGISTRY_DATE }</td>
 										</tr>
 										<tr>
 											<td width="0"></td>
-											<td align="right" width="50">view: ${resultMap.VIEWS }</td>
+											<c:set var="views" value="${resultMap.VIEWS+1}" />
+											<td align="right" width="50">view: ${views }</td>
 										</tr>
-										</table>
-										<table  align="center">
-										<tr >
-											<td> <textarea readonly name="CONTENT" cols="120" rows="40" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
+										
+										<tr>
+										<td width="0"></td>
+										<td align="right" width="319"><a href="<c:url value='/resources/images/${resultMap.ITEM }' />" download>
+										 ${resultMap.ITEM}
+										</a></td>
+										</tr>
+									</table>
+									<table align="center">
+										<tr>
+											<td><textarea readonly name="CONTENT" cols="120"
+													rows="40"
+													style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
 										</tr>
 
 										<tr height="1" bgcolor="#dddddd">
@@ -92,17 +104,16 @@
 								</td>
 							</tr>
 						</table>
+						
 					</div>
 				</div>
 			</div>
-				<div align="right">
-						
-							<input type=button value="modify" class="btn btn-default"
-							onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
-							<input type=button value="delete" class="btn btn-default"
-							onclick="location.href='<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
-				<div>
+			<div align="right">
 
-		</div>
-	</div>
+				<input type=button value="modify" class="btn btn-default"
+					onclick="location.href='<c:url value='/board/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
+				<input type=button value="delete" class="btn btn-default"
+					onclick="location.href='<c:url value='/board/delete?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' ">
+				<div></div>
+			</div>
 </body>

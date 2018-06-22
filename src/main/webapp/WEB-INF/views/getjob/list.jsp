@@ -32,7 +32,7 @@
 					<c:forEach items="${resultList}" var="resultData" varStatus="loop">
 						<div class="col-lg-4">
 							<a href="${resultData.CONTENT }">
-							<img class="img-circle" src="<c:url value='${resultData.ITEM}'/>"
+							<img class="img-circle" src="<c:url value='/resources/images/${resultData.ITEM}'/>"
 								alt="${resultData.CONTENT }" width="140" height="140">
 								</a>
 							<h2><a href="<c:url value='/getjob/edit?MC_BOARD_SEQ=${resultData.MC_BOARD_SEQ}'/>">${resultData.TITLE}</a></h2>
