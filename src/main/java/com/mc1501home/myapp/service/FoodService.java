@@ -46,10 +46,16 @@ public class FoodService {
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
 		dataMap.put("MEMBER_SEQ", uniqueSequence);
-		dataMap.put("REGISTER_SEQ", "UUID-1111-1111111");
-		dataMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
 		
-		String sqlMapId = "foodstore.merge";
+		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
+		String sqlMapId = "member.searchAI";
+		Map<String, Object> item= (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
+		String authority ;
+		authority= (String) item.get("AUTHORITY_ID");
+		dataMap.put("AUTHORITY_ID", authority );
+		
+		
+		sqlMapId = "foodstore.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 		

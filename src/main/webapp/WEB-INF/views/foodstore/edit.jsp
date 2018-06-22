@@ -28,9 +28,9 @@
 				action="<c:url value='/foodstore/merge'/>">
 				
 				<input type="hidden" name="MC_BOARD_SEQ" value="${resultMap.MC_BOARD_SEQ }">
-				<input type="hidden" name="MEMBER_SEQ" value="M0006">
+				<input type="hidden" name="MEMBER_SEQ" value="${principalName}">
 				<input type="hidden" name="CATEGORY" value="FOODSTORE">
-				<input type="hidden" name="AUTHORITY_ID" value="AUT001">
+				<input type="hidden" name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}">
 				<input type="hidden" name="forwardView" value="/foodstore/list" />
 				<div class="panel panel-default">
 					<div class="panel-heading">food Board</div>

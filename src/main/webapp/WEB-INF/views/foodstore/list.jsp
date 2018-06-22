@@ -54,7 +54,10 @@
 					<!-- /.panel-body -->
 				</div>
 				<!-- /.panel -->
-
+				<div align="right">
+			<input type=button value="write" class="btn btn-default"
+							onclick="location.href='<c:url value='/foodstore/edit?MC_BOARD_SEQ=${resultMap.MC_BOARD_SEQ}' />' "> 
+		</div>
 			</div>
 			<!-- food calendar -->
 			<div class="col-lg-6"><img src="<c:url value='/resources/images/foodcalendar.jpg'/>"></div></div>

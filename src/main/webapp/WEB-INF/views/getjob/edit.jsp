@@ -29,9 +29,9 @@
 
 				<input type="hidden" name="MC_BOARD_SEQ"
 					value="${resultMap.MC_BOARD_SEQ }"> <input type="hidden"
-					name="MEMBER_SEQ" value="M0006"> <input type="hidden"
+					name="MEMBER_SEQ" value="${principalName}"> <input type="hidden"
 					name="CATEGORY" value="GETJOB"> <input type="hidden"
-					name="AUTHORITY_ID" value="AUT001"> <input type="hidden"
+					name="AUTHORITY_ID" value="${resultMap.AUTHORITY_ID}"> <input type="hidden"
 					name="forwardView" value="/getjob/list" />
 				<div class="panel panel-default">
 					<div class="panel-heading">GetJob Board</div>
@@ -78,7 +78,7 @@
 												<td align="center">Name</td>
 												<td><input readonly name="NAME" maxlength="50"
 													style="border: none; border-right: 0px; width: 100%; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
-													value="${resultMap.NAME }"></td>
+													value="${resultMap.NAME}"></td>
 												<td>&nbsp;</td>
 											</tr>
 

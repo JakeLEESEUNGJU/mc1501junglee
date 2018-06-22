@@ -77,7 +77,7 @@
 												<td align="center">Name</td>
 												<td><input readonly name="NAME" maxlength="125"
 													style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
-													value="${principalName}"></td>
+													value="${resultMap.NAME}"></td>
 												<td>&nbsp;</td>
 											</tr>
 

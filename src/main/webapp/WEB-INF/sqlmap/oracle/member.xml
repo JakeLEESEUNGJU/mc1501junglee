@@ -8,10 +8,11 @@
 
 	<select id="searchAI" resultType="Map" parameterType="Map">
 		select
-			AUTHORITY_ID
-			FROM MC_AUTHORITY_MEMBER
-			WHERE MEMBER_SEQ=#{MEMBER_SEQ}
-	
+			MI1.AUTHORITY_ID AS AUTHORITY_ID,
+            MI2.NAME AS NAME
+			FROM MC_AUTHORITY_MEMBER  MI1  INNER JOIN MC_MEMBER  MI2
+			ON MI1.MEMBER_SEQ=MI2.MEMBER_SEQ
+            AND MI1.MEMBER_SEQ=#{MEMBER_SEQ}
 	
 	</select>
 	

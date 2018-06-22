@@ -46,11 +46,10 @@ public class BoardService {
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
 		String sqlMapId = "member.searchAI";
 		Map<String, Object> item= (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
-		String authority ;
-		authority= (String) item.get("AUTHORITY_ID");
-		System.out.println(authority);
-		System.out.println(dao.getObject(sqlMapId, dataMap));
+		String authority= (String) item.get("AUTHORITY_ID");
 		dataMap.put("AUTHORITY_ID", authority );
+		authority= (String) item.get("NAME");
+		dataMap.put("NAME", authority );
 		
 		
 		sqlMapId = "board.merge";
