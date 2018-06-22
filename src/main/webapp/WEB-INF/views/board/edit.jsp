@@ -37,7 +37,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Free Board</div>
 					<div class="panel-body">
-						<div style="height: 100%; width: 100%" align="center">
+						<div class="form-group" style="height: 100%; width: 100%" align="center">
 						<!-- Date Select -->
 							<div class="form-group">
 								<label for="inputStartDate" class="col-sm-2 control-label">StartDate</label>
@@ -57,7 +57,7 @@
 								</div>
 							</div>
 							<!-- ==================================== -->
-							<table width="100%">
+							<table width="100%" class="form-group">
 								<tr>
 									<td>
 										<table width="100%">
@@ -77,7 +77,7 @@
 												<td align="center">Name</td>
 												<td><input readonly name="NAME" maxlength="125"
 													style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px;"
-													value="${resultMap.NAME }"></td>
+													value="${principalName}"></td>
 												<td>&nbsp;</td>
 											</tr>
 
@@ -87,7 +87,7 @@
 											<tr>
 												<td>&nbsp;</td>
 												<td align="center">Content</td>
-												<td><textarea name="CONTENT" cols="125" rows="40" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
+												<td><textarea name="CONTENT" cols="120%" rows="40%" style="border: none; border-right: 0px; border-top: 0px; boder-left: 0px; boder-bottom: 0px; resize: none;"> ${resultMap.CONTENT }</textarea></td>
 												<td>&nbsp;</td>
 											</tr>
 											<tr height="1" bgcolor="#dddddd">
