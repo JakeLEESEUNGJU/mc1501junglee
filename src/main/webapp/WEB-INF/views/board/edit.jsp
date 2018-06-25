@@ -9,9 +9,9 @@
 		<div class="item">
 			<div class="container">
 				<div class="carousel-caption" style="margin-bottom: 20px;">
-					<h3 class="featurette-heading"
-						style="vertical-align: top; font-size: 130px;">MC1501 Community</h3>
-					<p style="font-size: 30px;">Multicampus Free Board</p>
+					<h2 class="featurette-heading"
+						style="vertical-align: top; font-size: 130px;">Board.</h2>
+					<p style="font-size: 30px;">MC1501 Community</p>
 				</div>
 			</div>
 		</div>
