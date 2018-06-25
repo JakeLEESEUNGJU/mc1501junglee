@@ -7,18 +7,18 @@
     
     <script>
     // email checker
-    function email_check( email ) {
+    function email_check( EMAIL ) {
         
         var regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-        return (email != '' && email != 'undefined' && regex.test(email));
+        return (EMAIL != '' && EMAIL != 'undefined' && regex.test(EMAIL));
      
     }
     
     // password checker
-    function password_check( password ) {
+    function password_check( PASSWORD ) {
     	
         var regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{2,}$/;
-        return (password != '' && email != 'undefined' && regex.test(password));
+        return (PASSWORD != '' && EMAIL != 'undefined' && regex.test(PASSWORD));
      
     }
     
@@ -50,10 +50,10 @@
     			
     				//1.1.1 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±í  ë
     			if( email_check($("#inputEmail").val()) ){
-    				inputSuccess("#email", "#emailCheckSymbol", "#emailCheckSymbolStatus");
+    				inputSuccess("#EMAIL", "#emailCheckSymbol", "#emailCheckSymbolStatus");
     				//1.1.2 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±íì§ ëª»í  ë	
     			}else{
-    				inputError("#email", "#emailCheckSymbol", "#emailCheckSymbolStatus");
+    				inputError("#EMAIL", "#emailCheckSymbol", "#emailCheckSymbolStatus");
     			}
     		});
     		
@@ -65,10 +65,10 @@
     			
     				//1.1.1 ìë ¥í ìí¸ê° ì¡°ê±´ì ë§ì¡±í  ë
     			if( password_check($("#inputPassword").val()) ){
-    				inputSuccess("#password", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
+    				inputSuccess("#PASSWORD", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
     				//1.1.2 ìë ¥í ì´ë©ì¼ì´ ì¡°ê±´ì ë§ì¡±íì§ ëª»í  ë	
     			}else{
-    				inputError("#password", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
+    				inputError("#PASSWORD", "#passwordCheckSymbol", "#passwordCheckSymbolStatus");
     			}
     		});
     		
@@ -117,7 +117,7 @@
 	  <div class="form-group" id="EMAIL">
 	    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
 	    <div class="col-sm-9">
-	      <input class="form-control" type="EMAIL" name="EMAIL"	value="${resultMap.EMAIL }">
+	      <input class="form-control" type="EMAIL" name="EMAIL"	id="inputEmail" value="${resultMap.EMAIL }">
 	      <span id="emailCheckSymbol"></span>
 	      <span id="emailCheckSymbolStatus"></span>
 		  <p class="col-sm-1"></p>
