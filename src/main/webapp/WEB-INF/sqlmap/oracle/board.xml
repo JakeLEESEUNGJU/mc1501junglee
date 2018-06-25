@@ -16,9 +16,11 @@
 		,
 		MM.NAME AS NAME
 		from MC_BOARD MB INNER JOIN MC_MEMBER MM
-		ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
+		ON
+		MB.MEMBER_SEQ = MM.MEMBER_SEQ
 		WHERE MB.CATEGORY = #{CATEGORY}
-		ORDER BY REGISTRY_DATE DESC
+		ORDER BY
+		AUTHORITY_ID ASC, REGISTRY_DATE DESC
 
 
 	</select>
@@ -27,25 +29,30 @@
 		select
 		MB.MC_BOARD_SEQ AS MC_BOARD_SEQ
 		, MB.TITLE AS TITLE
-		, MB.CONTENT AS CONTENT
+		, MB.CONTENT AS
+		CONTENT
 		, MB.START_DATE AS START_DATE
 		, MB.END_DATE AS END_DATE
-		, MB.ITEM AS ITEM
+		, MB.ITEM
+		AS ITEM
 		, MB.CATEGORY AS CATEGORY
 		, MB.REGISTRY_DATE AS REGISTRY_DATE
-		, MB.AUTHORITY_ID AS AUTHORITY_ID
+		,
+		MB.AUTHORITY_ID AS AUTHORITY_ID
 		, MB.VIEWS AS VIEWS
 		, MM.NAME AS NAME
 		,
 		MM.MEMBER_SEQ AS MEMBER_SEQ
 		from MC_BOARD MB INNER JOIN MC_MEMBER MM
-		ON MB.MEMBER_SEQ = MM.MEMBER_SEQ
+		ON
+		MB.MEMBER_SEQ = MM.MEMBER_SEQ
 		WHERE MB.MC_BOARD_SEQ = #{MC_BOARD_SEQ}
 	</select>
 
 	<insert id="merge" parameterType="Map">
 		MERGE INTO MC_BOARD MC1
-		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ FROM DUAL) MC2
+		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ
+		FROM DUAL) MC2
 		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
 		WHEN MATCHED THEN
 		UPDATE SET
@@ -78,14 +85,55 @@
 		, 0
 		)
 	</insert>
+
+	<insert id="topmerge" parameterType="Map">
+		MERGE INTO MC_BOARD MC1
+		USING (SELECT #{MC_BOARD_SEQ} AS MC_BOARD_SEQ FROM	DUAL) MC2
+		ON (MC1.MC_BOARD_SEQ= MC2.MC_BOARD_SEQ)
+		WHEN MATCHED THEN
+		UPDATE SET
+		TITLE = #{TITLE} <!-- 제목 -->
+		, CONTENT = #{CONTENT} <!-- 내용 -->
+		, MODIFIER_SEQ = #{MEMBER_SEQ} <!-- 수정자_SEQ -->
+		, MODIFY_DATE = sysdate <!-- 수정일자 -->
+		, ITEM = #{ITEM} <!-- 첨부 -->
+		WHEN NOT MATCHED THEN
+		INSERT (
+		MC_BOARD_SEQ <!-- 글번호 -->
+		, TITLE 	<!-- 제목 -->
+		, CONTENT 	<!-- 내용 -->
+		, REGISTRY_DATE	<!-- 등록날짜 -->
+		, ITEM 	<!-- ITEM -->
+		, CATEGORY	<!-- 카테고리 -->
+		, AUTHORITY_ID	<!-- 권한 ID -->
+		, MEMBER_SEQ	<!-- 멤버 시퀀스 -->
+		, VIEWS
+		, START_DATE
+		, END_DATE
+		)
+		values(
+		#{MC_BOARD_SEQ} <!-- 게시글 시퀀스 -->
+		, #{TITLE} <!-- 제목 -->
+		, #{CONTENT} <!-- 내용 -->
+		, sysdate <!-- 등록일자 -->
+		, #{ITEM}	<!-- ITEM -->
+		, #{CATEGORY}	<!-- 카테고리 -->
+		, #{AUTHORITY_ID}	<!-- 권한 ID -->
+		, #{MEMBER_SEQ}	<!-- 멤버 시퀀스 -->
+		, 0
+		, #{START_DATE}
+		, #{END_DATE}
+		)
+	</insert>
+
 	<delete id="delete" parameterType="Map">
 		delete from MC_BOARD
 		where
 		MC_BOARD_SEQ = #{MC_BOARD_SEQ}
 	</delete>
 	<update id="views" parameterType="Map">
-		UPDATE MC_BOARD SET 
-		 VIEWS = VIEWS+1
-		WHERE MC_BOARD_SEQ=#{MC_BOARD_SEQ} 
+		UPDATE MC_BOARD SET
+		VIEWS = VIEWS+1
+		WHERE MC_BOARD_SEQ=#{MC_BOARD_SEQ}
 	</update>
 </mapper>

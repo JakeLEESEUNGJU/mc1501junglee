@@ -47,7 +47,9 @@
 									<p class="col-sm-1"></p>
 								</div>
 							</div>
-
+							<script type="text/javascript">
+							
+							</script>
 							<div class="form-group">
 								<label for="inputEndDate" class="col-sm-2 control-label">EndDate</label>
 								<div class="col-sm-9">

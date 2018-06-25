@@ -36,7 +36,7 @@ public class BoardService {
 		String sqlMapId = "board.read";
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 
-		sqlMapId = "board.views";		
+		sqlMapId = "board.views";
 		Object resultKey = dao.getUpdate(sqlMapId, dataMap);
 
 		return resultObject;
@@ -57,6 +57,7 @@ public class BoardService {
 		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
+
 		dataMap.put("MC_BOARD_SEQ", uniqueSequence);
 		String sqlMapId = "member.searchAI";
 		Map<String, Object> item = (Map<String, Object>) dao.getObject(sqlMapId, dataMap);
@@ -64,8 +65,11 @@ public class BoardService {
 		dataMap.put("AUTHORITY_ID", authority);
 		authority = (String) item.get("NAME");
 		dataMap.put("NAME", authority);
-
-		sqlMapId = "board.merge";
+		if (!(dataMap.get("AUTHORITY_ID").equals("AUT003"))) {
+			sqlMapId = "board.topmerge";
+		} else {
+			sqlMapId = "board.merge";
+		}
 
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
 
