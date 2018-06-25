@@ -57,6 +57,8 @@
         , CATEGORY	<!-- 카테고리 -->
         , AUTHORITY_ID	<!-- 권한 ID -->
         , MEMBER_SEQ	<!-- 멤버 시퀀스 -->
+        , START_DATE
+		, END_DATE
 		)
 		values(
 		  #{MC_BOARD_SEQ} <!-- 게시글 시퀀스 -->
@@ -67,6 +69,8 @@
         , #{CATEGORY}	<!-- 카테고리 -->
         , #{AUTHORITY_ID}	<!-- 권한 ID -->
         , #{MEMBER_SEQ}	<!-- 멤버 시퀀스 -->
+        , #{START_DATE}
+		, #{END_DATE}
 		)
 	</insert>
 
