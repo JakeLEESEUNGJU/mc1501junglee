@@ -17,7 +17,7 @@
         <div class="item">
           <div class="container">
             <div class="carousel-caption" style=" margin-bottom: 20px;">
-              <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501Group</h2>
+              <h2 class="featurette-heading" style="vertical-align:top; font-size:130px;">MC1501 Community</h2>
               <p  style="font-size:30px;">Multicampus The Algorithm Group.</p>
             </div>
           </div>
