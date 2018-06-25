@@ -40,11 +40,9 @@ public class LoginService {
 		
 		String sqlMapId = "member.merge";
 		Object resultKey = dao.saveObject(sqlMapId, dataMap);
-		System.out.println("회원 생성 했나요? " + resultKey);
 
 		sqlMapId = "member.authority_member";
 		resultKey = dao.saveObject(sqlMapId, dataMap);
-		System.out.println("회원권한  생성 했나요? " + resultKey);
 		
 		
 		sqlMapId = "member.read";
