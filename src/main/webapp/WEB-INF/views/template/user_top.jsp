@@ -48,7 +48,7 @@
             value="${pageContext.request.userPrincipal.name}" /> 
             <i class="fa fa-user fa-fw"></i>
             <i class="fa fa-caret-down"></i> 
-            <a href=${principalName == null ? '/login/signup' : 'https://hrd.go.kr/hrdp/mb/pmbao/PMBAO0100T.do' }>
+            <a href=${principalName == null ? '/myapp/login/signup' : 'https://hrd.go.kr/hrdp/mb/pmbao/PMBAO0100T.do' }>
             ${principalName == null ? 'SignUp' : 'HRD' }</a></li>
 			     <li><c:set var="principalName"
             value="${pageContext.request.userPrincipal.name}" /> 
